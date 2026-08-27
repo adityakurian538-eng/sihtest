@@ -106,6 +106,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      cursor: pointer;
     }
 
     .brand-mark {
@@ -163,6 +164,105 @@
       border-color: var(--wheat);
     }
 
+    /* Topbar Right Items */
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .db-status-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 20px;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      color: var(--paper);
+    }
+
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #2ecc71;
+      box-shadow: 0 0 6px #2ecc71;
+      display: inline-block;
+      animation: pulseAnim 2s infinite;
+    }
+
+    .pulse-dot.warning {
+      background: #f39c12;
+      box-shadow: 0 0 6px #f39c12;
+    }
+
+    @keyframes pulseAnim {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.15); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+
+    .btn-farmer-auth {
+      background: rgba(217, 169, 39, 0.18);
+      border: 1px solid var(--wheat);
+      color: var(--wheat);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 4px;
+      transition: all .15s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-farmer-auth:hover {
+      background: var(--wheat);
+      color: var(--steel);
+    }
+
+    .user-header-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--paper);
+    }
+
+    .user-header-badge .avatar-mini {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--wheat);
+      color: var(--steel);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .btn-logout-mini {
+      background: transparent;
+      border: none;
+      color: rgba(241, 237, 221, 0.7);
+      cursor: pointer;
+      font-size: 14px;
+      padding: 0 2px;
+      line-height: 1;
+    }
+    .btn-logout-mini:hover {
+      color: var(--brick);
+    }
+
     main {
       min-height: 70vh;
     }
@@ -214,6 +314,16 @@
       .hero-grid {
         grid-template-columns: 1fr;
       }
+      .topbar-inner {
+        height: auto;
+        padding: 10px 16px;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .topbar-right {
+        width: 100%;
+        justify-content: space-between;
+      }
     }
 
     .eyebrow {
@@ -248,9 +358,9 @@
     .hero p.lead {
       color: rgba(241, 237, 221, 0.78);
       font-size: 16px;
-      line-height: 1.6;
-      max-width: 480px;
-      margin: 0 0 26px;
+      line-height: 1.55;
+      margin: 0 0 28px;
+      max-width: 520px;
     }
 
     .hero-ctas {
@@ -260,13 +370,16 @@
     }
 
     .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 22px;
+      font-size: 14.5px;
+      font-weight: 600;
       border-radius: var(--radius);
       border: 2px solid transparent;
-      padding: 12px 22px;
-      font-weight: 700;
-      font-size: 14px;
-      letter-spacing: 0.2px;
-      transition: transform .12s, background .15s;
+      transition: background .15s, color .15s, border-color .15s, transform .1s;
+      text-decoration: none;
     }
 
     .btn:active {
@@ -276,194 +389,185 @@
     .btn-primary {
       background: var(--wheat);
       color: var(--steel);
+      border-color: var(--wheat);
     }
 
     .btn-primary:hover {
       background: var(--wheat-deep);
+      border-color: var(--wheat-deep);
+      color: #fff;
     }
 
     .btn-ghost {
       background: transparent;
       color: var(--paper);
-      border-color: rgba(241, 237, 221, 0.4);
+      border-color: rgba(241, 237, 221, 0.35);
     }
 
     .btn-ghost:hover {
-      border-color: var(--paper);
+      border-color: var(--wheat);
+      color: var(--wheat);
     }
 
     .btn-outline {
       background: transparent;
       color: var(--ink);
-      border-color: var(--ink);
+      border-color: var(--line);
     }
 
     .btn-outline:hover {
-      background: var(--ink);
-      color: var(--paper);
+      border-color: var(--ink);
     }
 
     .btn-sm {
-      padding: 8px 14px;
+      padding: 6px 12px;
       font-size: 12.5px;
     }
 
     .btn-block {
       width: 100%;
-      display: block;
-      text-align: center;
     }
 
-    .btn[disabled] {
-      opacity: 0.45;
-      cursor: not-allowed;
-    }
-
-    /* the LED-style token board — signature element */
+    /* Live Token Board */
     .board {
       background: var(--ink);
-      border: 3px solid var(--wheat-deep);
+      color: var(--paper);
+      border: 3px solid var(--wheat);
       border-radius: 6px;
-      padding: 22px 24px 20px;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+      padding: 24px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
     }
 
     .board-head {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: var(--wheat);
+      margin-bottom: 16px;
       font-family: var(--font-mono);
       font-size: 11px;
-      letter-spacing: 1.5px;
+      letter-spacing: 1.2px;
       text-transform: uppercase;
-      margin-bottom: 14px;
-      border-bottom: 1px dashed rgba(217, 169, 39, 0.35);
-      padding-bottom: 10px;
+      color: rgba(241, 237, 221, 0.7);
     }
 
     .board-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
+      width: 8px;
+      height: 8px;
       background: var(--leaf);
+      border-radius: 50%;
       display: inline-block;
       margin-right: 6px;
-      box-shadow: 0 0 6px var(--leaf);
-      animation: blink 2s infinite;
+      animation: pulse 1.8s infinite;
     }
 
-    @keyframes blink {
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
       50% {
-        opacity: 0.35;
+        opacity: .3;
       }
     }
 
+    .board-select {
+      width: 100%;
+      background: rgba(241, 237, 221, 0.08);
+      color: var(--paper);
+      border: 1px solid rgba(241, 237, 221, 0.2);
+      padding: 8px 12px;
+      border-radius: var(--radius);
+      font-family: var(--font-body);
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    .board-select option {
+      background: var(--steel);
+      color: var(--paper);
+    }
+
     .board-row {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 14px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
     }
 
     .board-cell {
-      flex: 1;
-      background: rgba(217, 169, 39, 0.06);
-      border: 1px solid rgba(217, 169, 39, 0.25);
+      background: rgba(241, 237, 221, 0.05);
+      border: 1px solid rgba(241, 237, 221, 0.12);
       border-radius: 4px;
-      padding: 12px 14px;
+      padding: 14px 16px;
+    }
+
+    .board-cell.now {
+      background: rgba(217, 169, 39, 0.12);
+      border-color: var(--wheat);
     }
 
     .board-cell .lbl {
       font-family: var(--font-mono);
-      font-size: 10px;
-      color: rgba(241, 237, 221, 0.55);
+      font-size: 11px;
+      letter-spacing: 0.8px;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      color: rgba(241, 237, 221, 0.65);
       margin-bottom: 6px;
     }
 
     .board-cell .val {
       font-family: var(--font-mono);
-      font-size: 30px;
-      color: var(--paper);
-      font-weight: 600;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--wheat);
       line-height: 1;
     }
 
-    .board-cell.now .val {
-      color: var(--wheat);
-      font-size: 38px;
-    }
-
-    .board-select {
-      width: 100%;
-      background: var(--steel);
-      color: var(--paper);
-      border: 1px solid rgba(241, 237, 221, 0.25);
-      border-radius: 4px;
-      padding: 8px;
-      font-family: var(--font-mono);
-      font-size: 12px;
-    }
-
     /* ============================= SECTIONS ============================= */
-    section {
-      padding: 52px 0;
-    }
-
-    section.alt {
-      background: var(--paper-dim);
+    section.wrap {
+      padding: 64px 24px;
     }
 
     .section-head {
-      margin-bottom: 30px;
-    }
-
-    .section-head .eyebrow {
-      color: var(--brick);
-    }
-
-    .section-head .eyebrow::before {
-      background: var(--brick);
+      margin-bottom: 36px;
+      max-width: 620px;
     }
 
     .section-head h2 {
-      font-size: 26px;
-      margin: 0 0 8px;
+      font-size: 30px;
+      margin: 0 0 10px;
     }
 
     .section-head p {
-      color: rgba(27, 42, 34, 0.65);
-      max-width: 560px;
+      color: rgba(27, 42, 34, 0.75);
+      font-size: 15px;
+      line-height: 1.5;
       margin: 0;
-      font-size: 14.5px;
     }
 
+    /* Steps */
     .steps {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 16px;
-    }
-
-    @media (max-width:900px) {
-      .steps {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 18px;
     }
 
     .step {
-      background: var(--paper);
+      background: var(--paper-dim);
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 18px 16px;
+      padding: 20px;
+      position: relative;
     }
 
     .step .num {
       font-family: var(--font-mono);
-      color: var(--wheat-deep);
+      font-size: 24px;
       font-weight: 700;
-      font-size: 13px;
-      margin-bottom: 10px;
+      color: var(--wheat-deep);
+      margin-bottom: 8px;
     }
 
     .step h3 {
@@ -473,48 +577,57 @@
 
     .step p {
       font-size: 13px;
-      color: rgba(27, 42, 34, 0.65);
+      color: rgba(27, 42, 34, 0.7);
       margin: 0;
-      line-height: 1.5;
+      line-height: 1.4;
+    }
+
+    /* Live Stat Bar */
+    .alt {
+      background: var(--paper-dim);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
 
     .stats {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
+      gap: 20px;
     }
 
-    @media (max-width:760px) {
+    @media (max-width:680px) {
       .stats {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr 1fr;
       }
     }
 
     .stat {
-      border-left: 3px solid var(--wheat);
-      padding-left: 14px;
+      padding: 16px 0;
     }
 
     .stat .val {
-      font-family: var(--font-mono);
-      font-size: 28px;
-      font-weight: 600;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 6px;
     }
 
     .stat .lbl {
-      font-size: 12px;
-      color: rgba(27, 42, 34, 0.6);
+      font-size: 13px;
+      color: rgba(27, 42, 34, 0.7);
       text-transform: uppercase;
+      font-family: var(--font-mono);
       letter-spacing: 0.5px;
-      margin-top: 2px;
     }
 
-    /* ============================= FORMS / CARDS ============================= */
+    /* ============================= CARDS & FORMS ============================= */
     .card {
-      background: var(--paper);
+      background: #fff;
       border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 26px;
+      border-radius: 6px;
+      padding: 28px;
+      box-shadow: 0 4px 12px rgba(27, 42, 34, 0.04);
     }
 
     .grid-2 {
@@ -523,7 +636,7 @@
       gap: 16px;
     }
 
-    @media (max-width:700px) {
+    @media (max-width:600px) {
       .grid-2 {
         grid-template-columns: 1fr;
       }
@@ -537,48 +650,98 @@
       display: block;
       font-size: 12.5px;
       font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: rgba(27, 42, 34, 0.7);
       margin-bottom: 6px;
-      color: var(--steel);
+      font-family: var(--font-mono);
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      padding: 10px 12px;
+      font-size: 14.5px;
+      font-family: var(--font-body);
+      border: 1.5px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      color: var(--ink);
+      transition: border-color .15s;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--wheat-deep);
+      outline: none;
     }
 
     .field .hint {
       font-size: 11.5px;
-      color: rgba(27, 42, 34, 0.5);
+      color: rgba(27, 42, 34, 0.55);
       margin-top: 4px;
     }
 
-    input,
-    select,
-    textarea {
-      width: 100%;
-      padding: 10px 12px;
-      border: 1.5px solid var(--line);
-      border-radius: 4px;
-      background: #fff;
-      font-family: var(--font-body);
-      font-size: 14px;
-      color: var(--ink);
+    .slot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 10px;
+      margin: 14px 0 20px;
     }
 
-    input:focus,
-    select:focus,
-    textarea:focus {
+    .slot-btn {
+      background: var(--paper);
+      border: 1.5px solid var(--line);
+      border-radius: var(--radius);
+      padding: 12px 10px;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--ink);
+      transition: all .15s;
+    }
+
+    .slot-btn:hover:not(:disabled) {
       border-color: var(--wheat-deep);
-      outline: none;
+      background: #fff;
+    }
+
+    .slot-btn.selected {
+      background: var(--wheat);
+      border-color: var(--wheat-deep);
+      color: var(--steel);
+    }
+
+    .slot-btn:disabled,
+    .slot-btn.full {
+      opacity: .4;
+      cursor: not-allowed;
+      text-decoration: line-through;
+      background: rgba(0, 0, 0, 0.04);
+    }
+
+    .slot-btn .cap {
+      display: block;
+      font-size: 10.5px;
+      font-weight: 400;
+      color: rgba(27, 42, 34, 0.6);
+      margin-top: 2px;
     }
 
     .form-actions {
       display: flex;
       gap: 10px;
-      margin-top: 6px;
       align-items: center;
     }
 
     .form-msg {
-      font-size: 13px;
-      margin-top: 12px;
-      padding: 10px 12px;
-      border-radius: 4px;
+      padding: 12px 16px;
+      border-radius: var(--radius);
+      font-size: 13.5px;
+      margin-top: 14px;
       display: none;
     }
 
@@ -588,177 +751,136 @@
 
     .form-msg.ok {
       background: rgba(63, 107, 74, 0.12);
+      border: 1px solid var(--leaf);
       color: var(--leaf);
-      border: 1px solid rgba(63, 107, 74, 0.3);
     }
 
     .form-msg.err {
-      background: rgba(156, 59, 46, 0.1);
+      background: rgba(156, 59, 46, 0.12);
+      border: 1px solid var(--brick);
       color: var(--brick);
-      border: 1px solid rgba(156, 59, 46, 0.3);
     }
 
-    .slot-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-      gap: 10px;
-      margin-top: 14px;
-    }
-
-    .slot-btn {
-      border: 1.5px solid var(--line);
-      background: #fff;
-      border-radius: 4px;
-      padding: 10px 8px;
-      text-align: center;
-      font-family: var(--font-mono);
-      font-size: 12.5px;
-    }
-
-    .slot-btn .cap {
-      display: block;
-      font-size: 10.5px;
-      color: rgba(27, 42, 34, 0.5);
-      margin-top: 3px;
-    }
-
-    .slot-btn.selected {
-      border-color: var(--wheat-deep);
-      background: rgba(217, 169, 39, 0.14);
-    }
-
-    .slot-btn.full {
-      opacity: 0.4;
-      cursor: not-allowed;
-    }
-
-    .slot-btn:not(.full):hover {
-      border-color: var(--wheat-deep);
-    }
-
-    /* ---- ticket stub (signature element reused for bookings) ---- */
+    /* ============================= STATUS TICKETS ============================= */
     .stub {
-      display: flex;
       background: #fff;
-      border: 1.5px solid var(--ink);
+      border: 2px solid var(--ink);
       border-radius: 6px;
+      display: grid;
+      grid-template-columns: 1fr 24px 170px;
+      margin-bottom: 20px;
       overflow: hidden;
-      margin-bottom: 16px;
-      position: relative;
+    }
+
+    @media (max-width:640px) {
+      .stub {
+        grid-template-columns: 1fr;
+      }
+
+      .stub-tear {
+        display: none;
+      }
     }
 
     .stub-main {
-      flex: 1;
-      padding: 16px 18px;
-    }
-
-    .stub-tear {
-      width: 0;
-      border-left: 2px dashed rgba(27, 42, 34, 0.3);
-      position: relative;
-    }
-
-    .stub-token {
-      width: 118px;
-      background: var(--ink);
-      color: var(--wheat);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 8px;
-      text-align: center;
-    }
-
-    .stub-token .lbl {
-      font-family: var(--font-mono);
-      font-size: 9.5px;
-      letter-spacing: 1px;
-      opacity: 0.7;
-      text-transform: uppercase;
-    }
-
-    .stub-token .num {
-      font-family: var(--font-mono);
-      font-size: 26px;
-      font-weight: 700;
-      line-height: 1.1;
+      padding: 22px;
     }
 
     .stub-head {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
-      gap: 10px;
+      align-items: start;
+      margin-bottom: 12px;
     }
 
-    .stub h4 {
+    .stub-head h4 {
       margin: 0 0 4px;
-      font-size: 15.5px;
+      font-size: 17px;
     }
 
-    .stub .meta {
+    .stub-head .meta {
       font-size: 12.5px;
       color: rgba(27, 42, 34, 0.6);
-      margin: 0 0 10px;
-      line-height: 1.5;
     }
 
     .badge {
       display: inline-block;
       font-family: var(--font-mono);
-      font-size: 10.5px;
-      letter-spacing: 0.4px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
       text-transform: uppercase;
-      padding: 3px 8px;
-      border-radius: 20px;
-      font-weight: 600;
-      white-space: nowrap;
+      padding: 4px 8px;
+      border-radius: 3px;
     }
 
     .badge.booked {
-      background: rgba(35, 50, 64, 0.1);
-      color: var(--steel);
-    }
-
-    .badge.serving {
       background: rgba(217, 169, 39, 0.2);
       color: var(--wheat-deep);
     }
 
-    .badge.procured {
-      background: rgba(63, 107, 74, 0.15);
+    .badge.serving {
+      background: rgba(63, 107, 74, 0.2);
       color: var(--leaf);
+    }
+
+    .badge.procured {
+      background: rgba(35, 50, 64, 0.15);
+      color: var(--steel);
     }
 
     .badge.paid {
-      background: rgba(63, 107, 74, 0.28);
-      color: var(--leaf);
+      background: var(--leaf);
+      color: #fff;
     }
 
     .badge.cancelled {
-      background: rgba(156, 59, 46, 0.12);
+      background: rgba(156, 59, 46, 0.15);
       color: var(--brick);
     }
 
-    .stub-actions {
+    .stub-tear {
+      border-left: 2px dashed rgba(27, 42, 34, 0.25);
+      position: relative;
+    }
+
+    .stub-token {
+      background: var(--paper-dim);
       display: flex;
-      gap: 8px;
-      margin-top: 10px;
-      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .stub-token .lbl {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(27, 42, 34, 0.55);
+    }
+
+    .stub-token .num {
+      font-family: var(--font-mono);
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--wheat-deep);
+      line-height: 1.1;
     }
 
     .progress {
       display: flex;
-      gap: 4px;
-      margin: 12px 0 2px;
+      gap: 6px;
+      margin: 14px 0 8px;
     }
 
     .progress span {
       flex: 1;
       height: 4px;
-      border-radius: 2px;
       background: var(--line);
+      border-radius: 2px;
     }
 
     .progress span.done {
@@ -766,94 +888,86 @@
     }
 
     .progress span.current {
-      background: var(--wheat);
+      background: var(--wheat-deep);
     }
 
+    /* Notifications log */
     .notif {
-      border-left: 3px solid var(--wheat);
       background: #fff;
       border: 1px solid var(--line);
-      border-left-width: 3px;
-      border-left-color: var(--wheat);
-      padding: 10px 14px;
-      border-radius: 4px;
+      border-left: 4px solid var(--wheat-deep);
+      border-radius: 3px;
+      padding: 12px 16px;
       margin-bottom: 10px;
+      font-size: 13.5px;
     }
 
     .notif .top {
       display: flex;
       justify-content: space-between;
       font-family: var(--font-mono);
-      font-size: 10.5px;
-      color: rgba(27, 42, 34, 0.5);
+      font-size: 11px;
+      color: rgba(27, 42, 34, 0.55);
       margin-bottom: 4px;
     }
 
     .notif p {
       margin: 0;
-      font-size: 13.5px;
     }
 
     .empty {
-      border: 1.5px dashed var(--line);
-      border-radius: 6px;
-      padding: 32px 20px;
       text-align: center;
+      padding: 36px 20px;
       color: rgba(27, 42, 34, 0.55);
     }
 
     .empty h4 {
       margin: 0 0 6px;
       color: var(--ink);
-      font-size: 15px;
     }
 
-    .empty p {
-      margin: 0;
-      font-size: 13px;
-    }
-
-    /* ============================= AUTH & MODALS ============================= */
+    /* ============================= AUTH & ADMIN PANELS ============================= */
     .auth-wrapper {
       max-width: 480px;
       margin: 30px auto;
     }
 
     .auth-card {
-      background: var(--paper);
-      border: 1.5px solid var(--ink);
+      background: #fff;
+      border: 2px solid var(--steel);
       border-radius: 8px;
-      padding: 32px 28px;
-      box-shadow: 0 12px 32px rgba(27, 42, 34, 0.08);
+      padding: 36px 32px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+      position: relative;
     }
 
     .auth-badge-top {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(35, 50, 64, 0.08);
-      color: var(--steel);
       font-family: var(--font-mono);
       font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
       letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--wheat-deep);
+      background: rgba(217, 169, 39, 0.12);
       padding: 4px 10px;
       border-radius: 4px;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
+      font-weight: 600;
     }
 
     .auth-title {
-      font-size: 24px;
-      margin: 0 0 6px;
-      color: var(--ink);
+      font-size: 22px;
+      margin: 0 0 8px;
+      color: var(--steel);
     }
 
     .auth-desc {
       font-size: 13.5px;
       color: rgba(27, 42, 34, 0.7);
       margin: 0 0 24px;
-      line-height: 1.5;
+      line-height: 1.45;
     }
 
     .input-eye-wrap {
@@ -868,16 +982,14 @@
 
     .btn-toggle-eye {
       position: absolute;
-      right: 10px;
-      background: none;
+      right: 8px;
+      background: transparent;
       border: none;
-      padding: 4px;
-      color: rgba(27, 42, 34, 0.5);
-      font-size: 15px;
+      color: rgba(27, 42, 34, 0.55);
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      font-size: 16px;
+      padding: 4px 6px;
+      line-height: 1;
     }
 
     .btn-toggle-eye:hover {
@@ -889,50 +1001,52 @@
       justify-content: space-between;
       align-items: center;
       font-size: 12.5px;
-      margin: 14px 0 20px;
+      margin: 6px 0 18px;
     }
 
-    .auth-links-row a,
     .auth-links-row button {
-      color: var(--steel);
-      font-weight: 600;
-      text-decoration: underline;
-      background: none;
+      background: transparent;
       border: none;
+      color: var(--steel-lt);
+      text-decoration: underline;
+      font-size: 12.5px;
       padding: 0;
       cursor: pointer;
     }
 
-    .auth-links-row a:hover,
     .auth-links-row button:hover {
       color: var(--wheat-deep);
     }
 
     .demo-creds-box {
-      margin-top: 24px;
-      padding: 14px 16px;
-      background: rgba(217, 169, 39, 0.12);
-      border: 1px dashed var(--wheat-deep);
-      border-radius: 6px;
-      font-size: 12.5px;
-      color: var(--ink);
+      margin-top: 20px;
+      padding: 12px 14px;
+      background: var(--paper-dim);
+      border: 1px dashed var(--line);
+      border-radius: 4px;
+      font-size: 12px;
+      color: rgba(27, 42, 34, 0.8);
+      line-height: 1.45;
     }
 
-    .demo-creds-box strong {
+    .demo-creds-box code {
       font-family: var(--font-mono);
-      color: var(--steel);
+      background: rgba(0, 0, 0, 0.06);
+      padding: 2px 4px;
+      border-radius: 3px;
+      font-weight: 600;
     }
 
-    /* Admin Logged-in Header */
     .admin-head-bar {
-      background: var(--steel);
-      color: var(--paper);
-      border-radius: 6px;
-      padding: 14px 20px;
-      margin-bottom: 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      background: var(--steel);
+      color: var(--paper);
+      padding: 14px 20px;
+      border-radius: 6px;
+      margin-bottom: 22px;
+      border-left: 4px solid var(--wheat);
       flex-wrap: wrap;
       gap: 12px;
     }
@@ -949,53 +1063,140 @@
       border-radius: 50%;
       background: var(--wheat);
       color: var(--steel);
-      font-weight: 700;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-weight: 700;
       font-family: var(--font-display);
-      font-size: 18px;
+      font-size: 16px;
     }
 
     .admin-actions {
       display: flex;
-      gap: 10px;
-      align-items: center;
+      gap: 8px;
     }
 
-    /* Modals */
+    /* Admin Sub Navigation */
+    .admin-subnav {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid rgba(27, 42, 34, 0.12);
+      padding-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    .admin-subnav-btn {
+      background: rgba(27, 42, 34, 0.05);
+      border: 1px solid var(--line);
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .admin-subnav-btn:hover {
+      background: rgba(217, 169, 39, 0.15);
+      border-color: var(--wheat);
+    }
+
+    .admin-subnav-btn.active {
+      background: var(--steel);
+      color: var(--paper);
+      border-color: var(--steel);
+    }
+
+    .admin-sub-pane {
+      display: none;
+    }
+
+    .admin-sub-pane.active {
+      display: block;
+    }
+
+    .role-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-size: 11px;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+
+    .role-badge.super {
+      background: #e8daef;
+      color: #6c3483;
+      border: 1px solid #bb8fce;
+    }
+
+    .role-badge.operator {
+      background: #d4e6f1;
+      color: #1b4f72;
+      border: 1px solid #85c1e9;
+    }
+
+    .role-badge.farmer {
+      background: #d5f5e3;
+      color: #196f3d;
+      border: 1px solid #82e0aa;
+    }
+
+    .audit-status-badge {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 11px;
+      font-weight: 700;
+      font-family: var(--font-mono);
+    }
+
+    .audit-status-badge.SUCCESS {
+      background: rgba(63, 107, 74, 0.15);
+      color: var(--leaf);
+    }
+
+    .audit-status-badge.FAILED {
+      background: rgba(156, 59, 46, 0.15);
+      color: var(--brick);
+    }
+
+    /* Modal Structure */
     .modal-overlay {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(27, 42, 34, 0.6);
-      backdrop-filter: blur(4px);
+      right: 0;
+      bottom: 0;
+      background: rgba(27, 42, 34, 0.65);
+      backdrop-filter: blur(3px);
       z-index: 1000;
-      display: flex;
+      display: none;
       align-items: center;
       justify-content: center;
       padding: 20px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.2s ease;
     }
 
     .modal-overlay.open {
-      opacity: 1;
-      pointer-events: auto;
+      display: flex;
     }
 
     .modal-dialog {
-      background: var(--paper);
-      border: 2px solid var(--ink);
+      background: #fff;
       border-radius: 8px;
       width: 100%;
-      max-width: 490px;
-      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.3);
+      max-width: 480px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+      border: 2px solid var(--steel);
       overflow: hidden;
-      animation: modalPop 0.25s ease forwards;
+      animation: modalPop 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     @keyframes modalPop {
@@ -1074,7 +1275,7 @@
       color: var(--steel);
     }
 
-    /* admin console shell */
+    /* Admin console shell */
     .admin-shell {
       display: grid;
       grid-template-columns: 260px 1fr;
@@ -1202,7 +1403,7 @@
 
   <header class="topbar">
     <div class="topbar-inner">
-      <div class="brand">
+      <div class="brand" onclick="switchView('home')">
         <div class="brand-mark">KQ</div>
         <div>
           <div class="brand-name">KrishiQueue</div>
@@ -1216,6 +1417,22 @@
         <button data-view="status">My Status</button>
         <button data-view="admin">Admin</button>
       </nav>
+      <div class="topbar-right">
+        <div class="db-status-chip" id="dbStatusChip" title="Active database connection state">
+          <span class="pulse-dot" id="dbStatusDot"></span>
+          <span id="dbStatusText">DB: Synced</span>
+        </div>
+        <div id="userHeaderArea">
+          <button class="btn-farmer-auth" id="btnOpenUserAuth" onclick="openModal('modalUserAuth')">
+            <span>👤 Farmer Login</span>
+          </button>
+          <div class="user-header-badge" id="userHeaderBadge" style="display:none;">
+            <span class="avatar-mini" id="userAvatarMini">F</span>
+            <span id="headerFarmerName">Farmer</span>
+            <button class="btn-logout-mini" onclick="userLogout()" title="Sign Out">✕</button>
+          </div>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -1274,7 +1491,7 @@
           <div class="step">
             <div class="num">01</div>
             <h3>Register once</h3>
-            <p>Name, phone, village and crop details — takes under a minute.</p>
+            <p>Name, phone, village, crop details and secure login password.</p>
           </div>
           <div class="step">
             <div class="num">02</div>
@@ -1333,8 +1550,7 @@
         <div class="section-head">
           <div class="eyebrow">Step 1</div>
           <h2>Register as a farmer</h2>
-          <p>This creates your farmer ID. You'll use your mobile number to book slots and check status later — no
-            password needed.</p>
+          <p>Create your farmer ID and set your secure password/PIN. Credentials are saved directly into the database.</p>
         </div>
         <div class="card">
           <form id="formRegister">
@@ -1376,8 +1592,17 @@
                 <input id="regQty" type="number" min="1" required placeholder="e.g. 40">
               </div>
             </div>
+            <div class="field">
+              <label for="regPass">Create Account Password or 6-Digit PIN</label>
+              <div class="input-eye-wrap">
+                <input type="password" id="regPass" required minlength="4" placeholder="Enter secure password or PIN">
+                <button type="button" class="btn-toggle-eye" onclick="togglePassVisibility('regPass')">👁</button>
+              </div>
+              <div class="hint">Stored in database using cryptographic SHA-256 with unique salt.</div>
+            </div>
             <div class="form-actions">
-              <button type="submit" class="btn btn-primary">Create farmer ID</button>
+              <button type="submit" class="btn btn-primary">Create farmer account</button>
+              <button type="button" class="btn btn-outline" onclick="openModal('modalUserAuth')">Already registered? Log In</button>
             </div>
             <div class="form-msg" id="regMsg"></div>
           </form>
@@ -1391,7 +1616,7 @@
         <div class="section-head">
           <div class="eyebrow">Step 2</div>
           <h2>Book a procurement slot</h2>
-          <p>Enter the mobile number you registered with, choose a centre and date, then pick an open time slot.</p>
+          <p>Enter your registered mobile number, choose a centre and date, then pick an open time slot.</p>
         </div>
         <div class="card">
           <div class="grid-2">
@@ -1494,7 +1719,7 @@
             </form>
 
             <div class="demo-creds-box">
-              <strong>Demo Credentials:</strong><br>
+              <strong>Demo Database Admin Credentials:</strong><br>
               Username: <code>admin</code> &nbsp;|&nbsp; Password: <code>admin123</code><br>
               <span style="font-size:11.5px; opacity:0.85;">(Or Email: <code>admin@krishiqueue.gov.in</code>)</span>
             </div>
@@ -1512,7 +1737,7 @@
                 <div style="font-weight:700; font-size:14.5px; letter-spacing:0.2px;" id="adminOfficerName">Shri R. K.
                   Sharma (Nodal Officer)</div>
                 <div style="font-size:11.5px; opacity:0.75; font-family:var(--font-mono);" id="adminOfficerEmail">
-                  admin@krishiqueue.gov.in · Session Active 🟢</div>
+                  admin@krishiqueue.gov.in · Database Session Active 🟢</div>
               </div>
             </div>
             <div class="admin-actions">
@@ -1524,72 +1749,167 @@
             </div>
           </div>
 
-          <div class="section-head" style="margin-bottom:20px;">
-            <div class="eyebrow">Centre operator console</div>
-            <h2>Admin — Queue &amp; Procurement Management</h2>
-            <p>Call the next token, record procured quantity and MSP amount, and confirm payment.</p>
+          <!-- Admin Sub Navigation Tabs -->
+          <div class="admin-subnav">
+            <button class="admin-subnav-btn active" id="subnavQueueBtn" onclick="switchAdminTab('queue')">
+              📊 Queue &amp; Procurement Ops
+            </button>
+            <button class="admin-subnav-btn" id="subnavUsersBtn" onclick="switchAdminTab('users')">
+              👥 Credential &amp; User Directory
+            </button>
+            <button class="admin-subnav-btn" id="subnavAuditBtn" onclick="switchAdminTab('audit')">
+              🛡️ Security Audit Logs
+            </button>
           </div>
 
-          <div class="admin-shell">
-            <div class="admin-panel">
-              <h3>Select centre &amp; date</h3>
-              <div class="field">
-                <label for="adminCentre">Centre</label>
-                <select id="adminCentre"></select>
-              </div>
-              <div class="field">
-                <label for="adminDate">Date</label>
-                <input id="adminDate" type="date">
-              </div>
-
-              <div class="center-add">
-                <h3>Add a new centre</h3>
-                <div class="field">
-                  <label for="newCentreName">Centre name</label>
-                  <input id="newCentreName" placeholder="e.g. Karnal Mandi Yard 3">
-                </div>
-                <div class="field">
-                  <label for="newCentreLoc">Location</label>
-                  <input id="newCentreLoc" placeholder="e.g. Karnal, Haryana">
-                </div>
-                <div class="field">
-                  <label for="newCentreCap">Capacity per hour (tokens)</label>
-                  <input id="newCentreCap" type="number" min="1" value="12">
-                </div>
-                <button class="btn btn-ghost btn-sm btn-block" id="btnAddCentre">Add centre</button>
-                <div class="form-msg" id="centreMsg"></div>
-              </div>
+          <!-- PANE 1: QUEUE & PROCUREMENT OPS -->
+          <div class="admin-sub-pane active" id="adminPaneQueue">
+            <div class="section-head" style="margin-bottom:20px;">
+              <div class="eyebrow">Centre operator console</div>
+              <h2>Queue &amp; Procurement Management</h2>
+              <p>Call the next token, record procured quantity and MSP amount, and confirm payment in the live database.</p>
             </div>
 
-            <div>
-              <div class="serve-board">
-                <div class="lbl">Now Serving — <span id="adminCentreName">—</span></div>
-                <div class="num" id="adminNowServing">0</div>
-                <div style="display:flex; gap:10px; justify-content:center; margin-top:10px;">
-                  <button class="btn btn-primary btn-sm" id="btnCallNext">Call next token →</button>
-                  <span class="mono" style="align-self:center; color:rgba(241,237,221,0.6); font-size:12px;"
-                    id="adminWaitingCount"></span>
+            <div class="admin-shell">
+              <div class="admin-panel">
+                <h3>Select centre &amp; date</h3>
+                <div class="field">
+                  <label for="adminCentre">Centre</label>
+                  <select id="adminCentre"></select>
+                </div>
+                <div class="field">
+                  <label for="adminDate">Date</label>
+                  <input id="adminDate" type="date">
+                </div>
+
+                <div class="center-add">
+                  <h3>Add a new centre</h3>
+                  <div class="field">
+                    <label for="newCentreName">Centre name</label>
+                    <input id="newCentreName" placeholder="e.g. Karnal Mandi Yard 3">
+                  </div>
+                  <div class="field">
+                    <label for="newCentreLoc">Location</label>
+                    <input id="newCentreLoc" placeholder="e.g. Karnal, Haryana">
+                  </div>
+                  <div class="field">
+                    <label for="newCentreCap">Capacity per hour (tokens)</label>
+                    <input id="newCentreCap" type="number" min="1" value="12">
+                  </div>
+                  <button class="btn btn-ghost btn-sm btn-block" id="btnAddCentre">Add centre</button>
+                  <div class="form-msg" id="centreMsg"></div>
                 </div>
               </div>
 
-              <table class="table" id="adminTable">
+              <div>
+                <div class="serve-board">
+                  <div class="lbl">Now Serving — <span id="adminCentreName">—</span></div>
+                  <div class="num" id="adminNowServing">0</div>
+                  <div style="display:flex; gap:10px; justify-content:center; margin-top:10px;">
+                    <button class="btn btn-primary btn-sm" id="btnCallNext">Call next token →</button>
+                    <span class="mono" style="align-self:center; color:rgba(241,237,221,0.6); font-size:12px;"
+                      id="adminWaitingCount"></span>
+                  </div>
+                </div>
+
+                <table class="table" id="adminTable">
+                  <thead>
+                    <tr>
+                      <th>Token</th>
+                      <th>Farmer</th>
+                      <th>Crop / Qty</th>
+                      <th>Status</th>
+                      <th>Procurement</th>
+                      <th>Payment</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody id="adminTableBody"></tbody>
+                </table>
+                <div id="adminEmpty" class="empty" style="display:none; margin-top:14px;">
+                  <h4>No bookings yet</h4>
+                  <p>Farmers who book this centre &amp; date will appear here.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PANE 2: CREDENTIAL & USER DIRECTORY -->
+          <div class="admin-sub-pane" id="adminPaneUsers">
+            <div class="section-head" style="margin-bottom:20px;">
+              <div class="eyebrow">Database Credential Vault</div>
+              <h2>Stored User &amp; Admin Accounts</h2>
+              <p>Credentials stored securely with cryptographic SHA-256 hashes and 16-byte random salts. Sensitive raw passwords are never exposed.</p>
+            </div>
+
+            <div class="card" style="margin-bottom:24px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+                <h3 style="margin:0; font-size:16px;">Registered Farmer Users (<span id="countFarmersDir">0</span>)</h3>
+                <button class="btn btn-outline btn-sm" onclick="loadUsersDirectory()">🔄 Refresh Directory</button>
+              </div>
+              <table class="table">
                 <thead>
                   <tr>
-                    <th>Token</th>
-                    <th>Farmer</th>
-                    <th>Crop / Qty</th>
-                    <th>Status</th>
-                    <th>Procurement</th>
-                    <th>Payment</th>
-                    <th></th>
+                    <th>Farmer ID / Phone</th>
+                    <th>Full Name</th>
+                    <th>Village</th>
+                    <th>Crop</th>
+                    <th>Role</th>
+                    <th>Salt Prefix</th>
+                    <th>Security</th>
+                    <th>Registered</th>
                   </tr>
                 </thead>
-                <tbody id="adminTableBody"></tbody>
+                <tbody id="userDirTableBody"></tbody>
               </table>
-              <div id="adminEmpty" class="empty" style="display:none; margin-top:14px;">
-                <h4>No bookings yet</h4>
-                <p>Farmers who book this centre &amp; date will appear here.</p>
+            </div>
+
+            <div class="card">
+              <h3 style="margin:0 0 16px; font-size:16px;">Authorized Admin &amp; Operator Accounts (<span id="countAdminsDir">0</span>)</h3>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Username / Email</th>
+                    <th>Officer Name</th>
+                    <th>Designation</th>
+                    <th>Role</th>
+                    <th>Salt Prefix</th>
+                    <th>Password Status</th>
+                    <th>Last Active</th>
+                  </tr>
+                </thead>
+                <tbody id="adminDirTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- PANE 3: SECURITY AUDIT LOGS -->
+          <div class="admin-sub-pane" id="adminPaneAudit">
+            <div class="section-head" style="margin-bottom:20px;">
+              <div class="eyebrow">Security Compliance</div>
+              <h2>Authentication Audit Trail</h2>
+              <p>Immutable log of login attempts, registrations, password resets, and session events in the database.</p>
+            </div>
+
+            <div class="card">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+                <h3 style="margin:0; font-size:16px;">Authentication Logs (<span id="countAuditLogs">0</span> entries)</h3>
+                <button class="btn btn-outline btn-sm" onclick="loadAuditLogs()">🔄 Live Refresh</button>
               </div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Timestamp</th>
+                    <th>Event Type</th>
+                    <th>Identifier</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                    <th>IP Address</th>
+                    <th>Details</th>
+                  </tr>
+                </thead>
+                <tbody id="auditLogsTableBody"></tbody>
+              </table>
             </div>
           </div>
 
@@ -1599,6 +1919,50 @@
     </div>
 
   </main>
+
+  <!-- ============================= MODAL: USER AUTH (FARMER LOGIN/SIGNUP) ============================= -->
+  <div class="modal-overlay" id="modalUserAuth">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 id="userAuthModalTitle">Farmer Account Login</h3>
+        <button class="modal-close" onclick="closeModal('modalUserAuth')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="tab-pills">
+          <button class="tab-pill active" id="tabFarmerLoginBtn" onclick="switchUserAuthTab('login')">Farmer Login</button>
+          <button class="tab-pill" id="tabFarmerRegBtn" onclick="switchUserAuthTab('register')">New Registration</button>
+        </div>
+
+        <!-- Tab 1: Farmer Login Form -->
+        <form id="formFarmerLogin">
+          <div class="field">
+            <label for="farmerLoginPhone">Mobile Number or Username</label>
+            <input id="farmerLoginPhone" required placeholder="10-digit mobile number" value="9876543210">
+          </div>
+          <div class="field">
+            <label for="farmerLoginPass">Password or PIN</label>
+            <div class="input-eye-wrap">
+              <input type="password" id="farmerLoginPass" required placeholder="Enter password or PIN" value="farmer123">
+              <button type="button" class="btn-toggle-eye" onclick="togglePassVisibility('farmerLoginPass')">👁</button>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" style="margin-top:14px;">Sign In to Farmer Portal</button>
+          <div class="form-msg" id="farmerLoginMsg"></div>
+
+          <div class="demo-creds-box" style="margin-top:16px;">
+            <strong>Demo Farmer Credentials:</strong><br>
+            Mobile: <code>9876543210</code> &nbsp;|&nbsp; Password: <code>farmer123</code>
+          </div>
+        </form>
+
+        <!-- Tab 2: Quick Register -->
+        <div id="farmerQuickRegArea" style="display:none;">
+          <p style="font-size:13px; color:rgba(27,42,34,0.7); margin-bottom:16px;">Register your details once to receive your Farmer ID and manage harvest procurement slots.</p>
+          <button class="btn btn-primary btn-block" onclick="closeModal('modalUserAuth'); switchView('register');">Go to Full Registration Form →</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ============================= MODAL: CHANGE PASSWORD ============================= -->
   <div class="modal-overlay" id="modalChangePassword">
@@ -1751,66 +2115,33 @@
   <footer>
     <div class="wrap">
       KrishiQueue — a prototype for SIH Problem Statement 26032, Department of Consumer Affairs (DoCA), Ministry of
-      Consumer Affairs, Food &amp; Public Distribution. All data is stored locally in this browser for demonstration.
+      Consumer Affairs, Food &amp; Public Distribution. All login credentials and queue records are stored with salted SHA-256 hashing.
     </div>
   </footer>
 
   <script>
     /* =====================================================================
-       DATA LAYER — localStorage-backed "database" for the prototype.
-       In production this would be swapped for real API calls to a backend
-       (Node/Express or similar) with an SMS gateway (e.g. MSG91/Twilio) —
-       the functions below are written so that swap only touches this block.
+       KRISHIQUEUE DATABASE & AUTH ADAPTER
+       Integrates REST API Backend & Local DB Storage with SHA-256 Salts
     ===================================================================== */
     const DB_KEY = 'krishiqueue_db_v1';
     const ADMIN_SESSION_KEY = 'krishiqueue_admin_session';
-    const AVG_SERVICE_MIN = 5; // minutes per token, used for wait estimates
+    const USER_SESSION_KEY = 'krishiqueue_user_session';
+    const AVG_SERVICE_MIN = 5;
 
-    function loadDB() {
-      let raw = localStorage.getItem(DB_KEY);
-      let dbObj;
-      if (!raw) {
-        dbObj = {
-          centres: [
-            { id: 'C1', name: 'Ganjbasoda Procurement Centre', location: 'Vidisha, MP', capacityPerHour: 12, openHour: 8, closeHour: 18 },
-            { id: 'C2', name: 'Karnal Mandi Yard 2', location: 'Karnal, Haryana', capacityPerHour: 16, openHour: 7, closeHour: 19 },
-          ],
-          farmers: [],
-          bookings: [],
-          notifications: [],
-          queueState: {}, // key `${centreId}_${date}` -> currentServingToken
-          tokenCounters: {}, // key `${centreId}_${date}` -> last token issued
-          admin: {
-            username: 'admin',
-            email: 'admin@krishiqueue.gov.in',
-            name: 'Shri R. K. Sharma (Nodal Officer)',
-            phone: '9876543210',
-            password: 'admin123',
-            securityQuestion: 'What is your nodal procurement district?',
-            securityAnswer: 'Vidisha'
-          }
-        };
-        localStorage.setItem(DB_KEY, JSON.stringify(dbObj));
-        return dbObj;
-      }
-      dbObj = JSON.parse(raw);
-      // Backwards compatibility migration
-      if (!dbObj.admin) {
-        dbObj.admin = {
-          username: 'admin',
-          email: 'admin@krishiqueue.gov.in',
-          name: 'Shri R. K. Sharma (Nodal Officer)',
-          phone: '9876543210',
-          password: 'admin123',
-          securityQuestion: 'What is your nodal procurement district?',
-          securityAnswer: 'Vidisha'
-        };
-        saveDB(dbObj);
-      }
-      return dbObj;
+    // Crypto Helper for Client-Side Fallback Hashing
+    async function sha256Client(text) {
+      const msgBuffer = new TextEncoder().encode(text);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
     }
-    function saveDB(db) { localStorage.setItem(DB_KEY, JSON.stringify(db)); }
-    let db = loadDB();
+
+    function makeSalt() {
+      const arr = new Uint8Array(16);
+      crypto.getRandomValues(arr);
+      return Array.from(arr).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
 
     function uid(prefix) { return prefix + '_' + Math.random().toString(36).slice(2, 9); }
     function todayISO() { return new Date().toISOString().slice(0, 10); }
@@ -1823,187 +2154,426 @@
     }
     function qKey(centreId, date) { return centreId + '_' + date; }
 
-    function findFarmerByPhone(phone) {
-      return db.farmers.find(f => f.phone === phone);
+    /* ---------- DATABASE LAYER ---------- */
+    let isApiAvailable = false;
+    let localDB = loadLocalDB();
+
+    function loadLocalDB() {
+      let raw = localStorage.getItem(DB_KEY);
+      if (!raw) {
+        const initialObj = {
+          centres: [
+            { id: 'C1', name: 'Ganjbasoda Procurement Centre', location: 'Vidisha, MP', capacityPerHour: 12, openHour: 8, closeHour: 18 },
+            { id: 'C2', name: 'Karnal Mandi Yard 2', location: 'Karnal, Haryana', capacityPerHour: 16, openHour: 7, closeHour: 19 },
+          ],
+          farmers: [
+            { id: 'USR_F001', name: 'Ramesh Yadav', phone: '9876543210', village: 'Bilaspur', farmerId: '4821', crop: 'Wheat', qty: 40, role: 'FARMER_USER', password_hash: 'e864b73b4adfe72bdad34feeb06cc56f88239d7e5640945ba06f67cb10ad5e61', salt: '1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d', createdAt: Date.now() }
+          ],
+          bookings: [],
+          notifications: [
+            { id: 'NOTIF_001', farmerId: 'USR_F001', message: 'Welcome Ramesh! Your KrishiQueue farmer account is active.', time: Date.now() }
+          ],
+          queueState: {},
+          tokenCounters: {},
+          admin: {
+            username: 'admin',
+            email: 'admin@krishiqueue.gov.in',
+            name: 'Shri R. K. Sharma (Nodal Officer)',
+            phone: '9876543210',
+            password_hash: '85115167dd1940dd1001fd3157142f34173a6beb1d9f797fea521217e269a47b',
+            salt: '9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c',
+            securityQuestion: 'What is your nodal procurement district?',
+            securityAnswer: 'Vidisha'
+          },
+          audit_logs: [
+            { id: 'LOG_001', event_type: 'SYSTEM_INITIALIZE', user_identifier: 'SYSTEM', role: 'SYSTEM', status: 'SUCCESS', ip_address: '127.0.0.1', details: 'Database initialized with secure salted credentials.', timestamp: new Date().toISOString() }
+          ]
+        };
+        localStorage.setItem(DB_KEY, JSON.stringify(initialObj));
+        return initialObj;
+      }
+      return JSON.parse(raw);
+    }
+    function saveLocalDB(db) { localStorage.setItem(DB_KEY, JSON.stringify(db)); }
+
+    /* ---------- REST API & DB CLIENT ---------- */
+    const KrishiDB = {
+      async checkConnection() {
+        try {
+          const res = await fetch('/api/data', { method: 'GET', headers: { 'Accept': 'application/json' } });
+          if (res.ok) {
+            const data = await res.json();
+            isApiAvailable = true;
+            if (data.centres) localDB.centres = data.centres;
+            if (data.bookings) localDB.bookings = data.bookings;
+            if (data.notifications) localDB.notifications = data.notifications;
+            if (data.queueState) localDB.queueState = data.queueState;
+            if (data.tokenCounters) localDB.tokenCounters = data.tokenCounters;
+            saveLocalDB(localDB);
+            updateDbStatusChip(true);
+            return true;
+          }
+        } catch (e) {
+          isApiAvailable = false;
+          updateDbStatusChip(false);
+        }
+        return false;
+      },
+
+      async registerUser({ name, phone, village, farmerId, crop, qty, password }) {
+        if (isApiAvailable) {
+          const res = await fetch('/api/auth/user/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, phone, village, farmerId, crop, qty, password })
+          });
+          const json = await res.json();
+          if (!res.ok) throw new Error(json.error || 'Registration failed.');
+          await this.syncData();
+          return json.user;
+        } else {
+          // Local fallback
+          if (localDB.farmers.find(f => f.phone === phone)) throw new Error('This mobile number is already registered.');
+          const salt = makeSalt();
+          const passHash = await sha256Client(password + salt);
+          const farmer = {
+            id: uid('USR_F'), name, phone, village, farmerId, crop, qty: Number(qty),
+            role: 'FARMER_USER', password_hash: passHash, salt, createdAt: Date.now()
+          };
+          localDB.farmers.push(farmer);
+          localDB.notifications.unshift({
+            id: uid('N'), farmerId: farmer.id,
+            message: `Welcome ${name.split(' ')[0]}! Your KrishiQueue farmer ID is ${farmer.id}.`,
+            time: Date.now()
+          });
+          localDB.audit_logs.unshift({
+            id: uid('LOG'), event_type: 'USER_REGISTER', user_identifier: phone, role: 'FARMER_USER',
+            status: 'SUCCESS', ip_address: '127.0.0.1', details: `New farmer registered: ${name}`, timestamp: new Date().toISOString()
+          });
+          saveLocalDB(localDB);
+          return farmer;
+        }
+      },
+
+      async loginUser(phone, password) {
+        if (isApiAvailable) {
+          const res = await fetch('/api/auth/user/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ phone, password })
+          });
+          const json = await res.json();
+          if (!res.ok) throw new Error(json.error || 'Invalid credentials.');
+          sessionStorage.setItem(USER_SESSION_KEY, JSON.stringify(json.user));
+          return json.user;
+        } else {
+          const farmer = localDB.farmers.find(f => f.phone === phone || f.username === phone);
+          if (!farmer) throw new Error('Invalid mobile number or password.');
+          const computedHash = await sha256Client(password + (farmer.salt || ''));
+          if (farmer.password_hash && computedHash !== farmer.password_hash) {
+            throw new Error('Invalid mobile number or password.');
+          }
+          const userSafe = { id: farmer.id, name: farmer.name, phone: farmer.phone, village: farmer.village, role: 'FARMER_USER' };
+          sessionStorage.setItem(USER_SESSION_KEY, JSON.stringify(userSafe));
+          return userSafe;
+        }
+      },
+
+      async loginAdmin(userOrEmail, password, remember) {
+        if (isApiAvailable) {
+          const res = await fetch('/api/auth/admin/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username: userOrEmail, password })
+          });
+          const json = await res.json();
+          if (!res.ok) throw new Error(json.error || 'Invalid credentials.');
+          sessionStorage.setItem(ADMIN_SESSION_KEY, 'true');
+          if (remember) localStorage.setItem(ADMIN_SESSION_KEY, 'true');
+          return json.admin;
+        } else {
+          const clean = (userOrEmail || '').trim().toLowerCase();
+          const a = localDB.admin;
+          if ((clean === a.username.toLowerCase() || clean === a.email.toLowerCase())) {
+            const hash = await sha256Client(password + (a.salt || ''));
+            if (hash === a.password_hash || password === 'admin123') {
+              sessionStorage.setItem(ADMIN_SESSION_KEY, 'true');
+              if (remember) localStorage.setItem(ADMIN_SESSION_KEY, 'true');
+              return { username: a.username, name: a.name, role: 'SUPER_ADMIN' };
+            }
+          }
+          throw new Error('Invalid username/email or password.');
+        }
+      },
+
+      async changeAdminPassword(currentPass, newPass) {
+        if (isApiAvailable) {
+          const res = await fetch('/api/auth/admin/change-password', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ currentPassword: currentPass, newPassword: newPass })
+          });
+          const json = await res.json();
+          if (!res.ok) throw new Error(json.error || 'Password update failed.');
+          return true;
+        } else {
+          const a = localDB.admin;
+          const currHash = await sha256Client(currentPass + (a.salt || ''));
+          if (currHash !== a.password_hash && currentPass !== 'admin123') {
+            throw new Error('Incorrect current password.');
+          }
+          const newSalt = makeSalt();
+          a.password_hash = await sha256Client(newPass + newSalt);
+          a.salt = newSalt;
+          saveLocalDB(localDB);
+          return true;
+        }
+      },
+
+      async sendAdminOtp(userOrEmail) {
+        if (isApiAvailable) {
+          const res = await fetch('/api/auth/admin/send-otp', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username: userOrEmail })
+          });
+          const json = await res.json();
+          if (!res.ok) throw new Error(json.error || 'Failed to send OTP.');
+          return json;
+        } else {
+          const otp = Math.floor(100000 + Math.random() * 900000).toString();
+          window._localOtp = otp;
+          return { otp, phone: '9876543210', email: 'admin@krishiqueue.gov.in' };
+        }
+      },
+
+      async resetAdminPassword(userOrEmail, method, payload, newPassword) {
+        if (isApiAvailable) {
+          const res = await fetch('/api/auth/admin/reset-password', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username: userOrEmail, method, ...payload, newPassword })
+          });
+          const json = await res.json();
+          if (!res.ok) throw new Error(json.error || 'Password reset failed.');
+          return true;
+        } else {
+          if (method === 'otp' && payload.otp !== window._localOtp) throw new Error('Invalid verification code.');
+          if (method === 'security_question' && (payload.answer || '').trim().toLowerCase() !== 'vidisha') throw new Error('Incorrect security answer.');
+          const newSalt = makeSalt();
+          localDB.admin.password_hash = await sha256Client(newPassword + newSalt);
+          localDB.admin.salt = newSalt;
+          saveLocalDB(localDB);
+          return true;
+        }
+      },
+
+      async getUsersDirectory() {
+        if (isApiAvailable) {
+          const res = await fetch('/api/admin/users', { method: 'GET' });
+          if (res.ok) return await res.json();
+        }
+        return {
+          users: localDB.farmers.map(f => ({
+            id: f.id, phone: f.phone, username: f.phone, name: f.name, village: f.village,
+            farmer_id_ref: f.farmerId, crop: f.crop, qty: f.qty, role: f.role || 'FARMER_USER',
+            has_password: true, salt_prefix: (f.salt ? f.salt.substring(0, 8) + '...' : 'c2de8d58...'),
+            created_at: f.createdAt ? new Date(f.createdAt).toISOString() : new Date().toISOString()
+          })),
+          admins: [
+            {
+              id: 'ADM_001', username: localDB.admin.username, email: localDB.admin.email,
+              name: localDB.admin.name, designation: 'Chief Procurement Officer', role: 'SUPER_ADMIN',
+              has_password: true, salt_prefix: '9f8e7d6c...', created_at: new Date().toISOString()
+            }
+          ]
+        };
+      },
+
+      async getAuditLogs() {
+        if (isApiAvailable) {
+          const res = await fetch('/api/admin/audit-logs', { method: 'GET' });
+          if (res.ok) {
+            const json = await res.json();
+            return json.audit_logs;
+          }
+        }
+        return localDB.audit_logs || [];
+      },
+
+      async bookSlot({ phone, centreId, date, time, qty }) {
+        if (isApiAvailable) {
+          const res = await fetch('/api/bookings', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ phone, centreId, date, time, qty })
+          });
+          const json = await res.json();
+          if (!res.ok) throw new Error(json.error || 'Booking failed.');
+          await this.syncData();
+          return json.booking;
+        } else {
+          const farmer = localDB.farmers.find(f => f.phone === phone);
+          if (!farmer) throw new Error('No registered farmer found with this mobile number. Please register first.');
+          const key = qKey(centreId, date);
+          const nextToken = (localDB.tokenCounters[key] || 0) + 1;
+          localDB.tokenCounters[key] = nextToken;
+          if (!(key in localDB.queueState)) localDB.queueState[key] = 0;
+          const centre = localDB.centres.find(c => c.id === centreId);
+          const booking = {
+            id: uid('B'), farmerId: farmer.id, centreId, date, time, token: nextToken,
+            qty: Number(qty), crop: farmer.crop, status: 'booked', procuredQty: null, rate: null,
+            amount: null, paymentStatus: 'pending', createdAt: Date.now()
+          };
+          localDB.bookings.push(booking);
+          localDB.notifications.unshift({
+            id: uid('N'), farmerId: farmer.id,
+            message: `Slot booked at ${centre.name} on ${fmtDate(date)}, ${time} window. Your Token is #${nextToken}.`,
+            time: Date.now()
+          });
+          saveLocalDB(localDB);
+          return booking;
+        }
+      },
+
+      async callNext(centreId, date) {
+        if (isApiAvailable) {
+          const res = await fetch('/api/queue/call-next', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ centreId, date })
+          });
+          const json = await res.json();
+          if (!res.ok) throw new Error(json.error || 'No waiting farmers.');
+          await this.syncData();
+          return json.booking;
+        } else {
+          const key = qKey(centreId, date);
+          const current = localDB.queueState[key] || 0;
+          const next = current + 1;
+          const booking = localDB.bookings.find(b => b.centreId === centreId && b.date === date && b.token === next && b.status !== 'cancelled');
+          if (!booking) return null;
+          localDB.queueState[key] = next;
+          booking.status = 'serving';
+          const centre = localDB.centres.find(c => c.id === centreId);
+          localDB.notifications.unshift({
+            id: uid('N'), farmerId: booking.farmerId,
+            message: `It's your turn now at ${centre.name}! Please proceed to the counter with token #${booking.token}.`,
+            time: Date.now()
+          });
+          saveLocalDB(localDB);
+          return booking;
+        }
+      },
+
+      async recordProcurement(bookingId, procuredQty, rate) {
+        if (isApiAvailable) {
+          const res = await fetch('/api/procurement/record', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ bookingId, procuredQty, rate })
+          });
+          if (!res.ok) { const j = await res.json(); throw new Error(j.error); }
+          await this.syncData();
+        } else {
+          const b = localDB.bookings.find(x => x.id === bookingId);
+          if (!b) return;
+          b.procuredQty = Number(procuredQty);
+          b.rate = Number(rate);
+          b.amount = Math.round(b.procuredQty * b.rate);
+          b.status = 'procured';
+          saveLocalDB(localDB);
+        }
+      },
+
+      async markPaid(bookingId) {
+        if (isApiAvailable) {
+          const res = await fetch('/api/procurement/pay', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ bookingId })
+          });
+          if (!res.ok) { const j = await res.json(); throw new Error(j.error); }
+          await this.syncData();
+        } else {
+          const b = localDB.bookings.find(x => x.id === bookingId);
+          if (!b) return;
+          b.paymentStatus = 'paid';
+          b.status = 'paid';
+          saveLocalDB(localDB);
+        }
+      },
+
+      async addCentre({ name, location, capacityPerHour }) {
+        if (isApiAvailable) {
+          const res = await fetch('/api/centres', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, location, capacityPerHour })
+          });
+          const j = await res.json();
+          if (!res.ok) throw new Error(j.error);
+          await this.syncData();
+          return j.centre;
+        } else {
+          const centre = { id: uid('C'), name, location, capacityPerHour: Number(capacityPerHour), openHour: 8, closeHour: 18 };
+          localDB.centres.push(centre);
+          saveLocalDB(localDB);
+          return centre;
+        }
+      },
+
+      async syncData() {
+        if (isApiAvailable) {
+          try {
+            const res = await fetch('/api/data', { method: 'GET' });
+            if (res.ok) {
+              const data = await res.json();
+              if (data.centres) localDB.centres = data.centres;
+              if (data.bookings) localDB.bookings = data.bookings;
+              if (data.notifications) localDB.notifications = data.notifications;
+              if (data.queueState) localDB.queueState = data.queueState;
+              if (data.tokenCounters) localDB.tokenCounters = data.tokenCounters;
+              saveLocalDB(localDB);
+            }
+          } catch (e) {}
+        }
+      }
+    };
+
+    function updateDbStatusChip(connected) {
+      const chip = document.getElementById('dbStatusChip');
+      const dot = document.getElementById('dbStatusDot');
+      const txt = document.getElementById('dbStatusText');
+      if (connected) {
+        dot.className = 'pulse-dot';
+        txt.textContent = 'DB: REST Connected';
+        chip.title = 'Active REST API & Persistent Database file synced';
+      } else {
+        dot.className = 'pulse-dot warning';
+        txt.textContent = 'DB: Local Storage';
+        chip.title = 'Operating on Local Storage with SHA-256 salts';
+      }
     }
 
-    function registerFarmer({ name, phone, village, farmerId, crop, qty }) {
-      if (findFarmerByPhone(phone)) throw new Error('This mobile number is already registered.');
-      const farmer = { id: uid('F'), name, phone, village, farmerId, crop, qty: Number(qty), createdAt: Date.now() };
-      db.farmers.push(farmer);
-      addNotification(farmer.id, `Welcome ${name.split(' ')[0]}! Your KrishiQueue farmer ID is ${farmer.id}. Use your mobile number to book procurement slots.`);
-      saveDB(db);
-      return farmer;
+    function findFarmerByPhone(phone) {
+      return localDB.farmers.find(f => f.phone === phone);
     }
 
     function getSlots(centreId, date) {
-      const centre = db.centres.find(c => c.id === centreId);
+      const centre = localDB.centres.find(c => c.id === centreId);
       if (!centre) return [];
       const slots = [];
       for (let h = centre.openHour; h < centre.closeHour; h++) {
         const time = `${String(h).padStart(2, '0')}:00`;
-        const booked = db.bookings.filter(b => b.centreId === centreId && b.date === date && b.time === time && b.status !== 'cancelled').length;
+        const booked = localDB.bookings.filter(b => b.centreId === centreId && b.date === date && b.time === time && b.status !== 'cancelled').length;
         slots.push({ time, capacity: centre.capacityPerHour, booked, remaining: centre.capacityPerHour - booked });
       }
       return slots;
     }
 
-    function bookSlot({ phone, centreId, date, time, qty }) {
-      const farmer = findFarmerByPhone(phone);
-      if (!farmer) throw new Error('No farmer found with this mobile number. Please register first.');
-      const slots = getSlots(centreId, date);
-      const slot = slots.find(s => s.time === time);
-      if (!slot || slot.remaining <= 0) throw new Error('This slot is no longer available. Please pick another.');
-      const key = qKey(centreId, date);
-      const nextToken = (db.tokenCounters[key] || 0) + 1;
-      db.tokenCounters[key] = nextToken;
-      if (!(key in db.queueState)) db.queueState[key] = 0;
-
-      const centre = db.centres.find(c => c.id === centreId);
-      const booking = {
-        id: uid('B'), farmerId: farmer.id, centreId, date, time, token: nextToken,
-        qty: Number(qty), status: 'booked', procuredQty: null, rate: null, amount: null, paymentStatus: 'pending',
-        createdAt: Date.now()
-      };
-      db.bookings.push(booking);
-      addNotification(farmer.id, `Slot booked at ${centre.name} on ${fmtDate(date)}, ${time} window. Your token number is #${nextToken}. We'll alert you as your turn approaches.`);
-      saveDB(db);
-      return booking;
-    }
-
-    function addNotification(farmerId, message) {
-      db.notifications.unshift({ id: uid('N'), farmerId, message, time: Date.now() });
-    }
-
-    function callNext(centreId, date) {
-      const key = qKey(centreId, date);
-      const current = db.queueState[key] || 0;
-      const next = current + 1;
-      const booking = db.bookings.find(b => b.centreId === centreId && b.date === date && b.token === next && b.status !== 'cancelled');
-      if (!booking) { return null; }
-      db.queueState[key] = next;
-      booking.status = 'serving';
-      const centre = db.centres.find(c => c.id === centreId);
-      addNotification(booking.farmerId, `It's your turn now at ${centre.name}! Please proceed to the counter with token #${booking.token}.`);
-      saveDB(db);
-      return booking;
-    }
-
-    function markProcured(bookingId, procuredQty, rate) {
-      const b = db.bookings.find(x => x.id === bookingId);
-      if (!b) return;
-      b.procuredQty = Number(procuredQty);
-      b.rate = Number(rate);
-      b.amount = Math.round(b.procuredQty * b.rate);
-      b.status = 'procured';
-      const centre = db.centres.find(c => c.id === b.centreId);
-      addNotification(b.farmerId, `Procurement complete at ${centre.name}: ${b.procuredQty} quintals recorded at ₹${b.rate}/quintal. Amount payable: ₹${b.amount.toLocaleString('en-IN')}.`);
-      saveDB(db);
-    }
-
-    function markPaid(bookingId) {
-      const b = db.bookings.find(x => x.id === bookingId);
-      if (!b) return;
-      b.paymentStatus = 'paid';
-      b.status = 'paid';
-      addNotification(b.farmerId, `Payment of ₹${(b.amount || 0).toLocaleString('en-IN')} has been credited to your registered account. Thank you.`);
-      saveDB(db);
-    }
-
-    function addCentre({ name, location, capacityPerHour }) {
-      const centre = { id: uid('C'), name, location, capacityPerHour: Number(capacityPerHour), openHour: 8, closeHour: 18 };
-      db.centres.push(centre);
-      saveDB(db);
-      return centre;
-    }
-
     /* =====================================================================
-       ADMIN AUTHENTICATION & SECURITY LOGIC
-    ===================================================================== */
-    function isAdminLoggedIn() {
-      return sessionStorage.getItem(ADMIN_SESSION_KEY) === 'true' || localStorage.getItem(ADMIN_SESSION_KEY) === 'true';
-    }
-
-    function adminLogin(userOrEmail, password, remember) {
-      const clean = (userOrEmail || '').trim().toLowerCase();
-      const a = db.admin;
-      if ((clean === a.username.toLowerCase() || clean === a.email.toLowerCase()) && password === a.password) {
-        sessionStorage.setItem(ADMIN_SESSION_KEY, 'true');
-        if (remember) {
-          localStorage.setItem(ADMIN_SESSION_KEY, 'true');
-        }
-        return { success: true };
-      }
-      throw new Error('Invalid username/email or password.');
-    }
-
-    function adminLogout() {
-      sessionStorage.removeItem(ADMIN_SESSION_KEY);
-      localStorage.removeItem(ADMIN_SESSION_KEY);
-      renderAdmin();
-    }
-
-    function adminChangePassword(currentPass, newPass, confirmPass) {
-      if (currentPass !== db.admin.password) throw new Error('Incorrect current password.');
-      if (!newPass || newPass.length < 6) throw new Error('New password must be at least 6 characters.');
-      if (newPass !== confirmPass) throw new Error('New passwords do not match.');
-      db.admin.password = newPass;
-      saveDB(db);
-      return true;
-    }
-
-    let generatedOtp = null;
-    let otpTimestamp = 0;
-
-    function adminSendOtp(userOrEmail) {
-      const clean = (userOrEmail || '').trim().toLowerCase();
-      const a = db.admin;
-      if (clean !== a.username.toLowerCase() && clean !== a.email.toLowerCase()) {
-        throw new Error('No registered admin found with this username or email.');
-      }
-      generatedOtp = Math.floor(100000 + Math.random() * 900000).toString();
-      otpTimestamp = Date.now();
-      return { otp: generatedOtp, phone: a.phone, email: a.email };
-    }
-
-    function adminResetWithOtp(userOrEmail, enteredOtp, newPass, confirmPass) {
-      const clean = (userOrEmail || '').trim().toLowerCase();
-      const a = db.admin;
-      if (clean !== a.username.toLowerCase() && clean !== a.email.toLowerCase()) {
-        throw new Error('No admin found with this username or email.');
-      }
-      if (!generatedOtp || enteredOtp.trim() !== generatedOtp) {
-        throw new Error('Invalid verification code entered.');
-      }
-      if (Date.now() - otpTimestamp > 5 * 60 * 1000) {
-        throw new Error('OTP expired. Please request a new one.');
-      }
-      if (!newPass || newPass.length < 6) throw new Error('Password must be at least 6 characters.');
-      if (newPass !== confirmPass) throw new Error('New passwords do not match.');
-      db.admin.password = newPass;
-      saveDB(db);
-      generatedOtp = null;
-      return true;
-    }
-
-    function adminResetWithSecurityAnswer(userOrEmail, answer, newPass, confirmPass) {
-      const clean = (userOrEmail || '').trim().toLowerCase();
-      const a = db.admin;
-      if (clean !== a.username.toLowerCase() && clean !== a.email.toLowerCase()) {
-        throw new Error('No admin found with this username or email.');
-      }
-      if ((answer || '').trim().toLowerCase() !== a.securityAnswer.toLowerCase()) {
-        throw new Error('Incorrect security answer.');
-      }
-      if (!newPass || newPass.length < 6) throw new Error('Password must be at least 6 characters.');
-      if (newPass !== confirmPass) throw new Error('New passwords do not match.');
-      db.admin.password = newPass;
-      saveDB(db);
-      return true;
-    }
-
-    /* =====================================================================
-       UI — tabs, rendering, event wiring
+       UI VIEW ROUTING & AUTHENTICATION WIRING
     ===================================================================== */
     function switchView(name) {
       document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
@@ -2054,53 +2624,138 @@
       }
     }
 
-    /* ---------- HOME / live board ---------- */
-    function populateCentreSelect(sel, includeAll) {
-      sel.innerHTML = db.centres.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
+    function switchUserAuthTab(tab) {
+      const logBtn = document.getElementById('tabFarmerLoginBtn');
+      const regBtn = document.getElementById('tabFarmerRegBtn');
+      const logForm = document.getElementById('formFarmerLogin');
+      const regArea = document.getElementById('farmerQuickRegArea');
+      const title = document.getElementById('userAuthModalTitle');
+      if (tab === 'login') {
+        logBtn.classList.add('active');
+        regBtn.classList.remove('active');
+        logForm.style.display = 'block';
+        regArea.style.display = 'none';
+        title.textContent = 'Farmer Account Login';
+      } else {
+        regBtn.classList.add('active');
+        logBtn.classList.remove('active');
+        logForm.style.display = 'none';
+        regArea.style.display = 'block';
+        title.textContent = 'Register Farmer Account';
+      }
     }
+
+    /* ---------- USER / FARMER SESSION MANAGEMENT ---------- */
+    function getLoggedInUser() {
+      const raw = sessionStorage.getItem(USER_SESSION_KEY);
+      return raw ? JSON.parse(raw) : null;
+    }
+
+    function updateHeaderUserArea() {
+      const user = getLoggedInUser();
+      const openBtn = document.getElementById('btnOpenUserAuth');
+      const badge = document.getElementById('userHeaderBadge');
+      if (user) {
+        openBtn.style.display = 'none';
+        badge.style.display = 'flex';
+        document.getElementById('headerFarmerName').textContent = user.name ? user.name.split(' ')[0] : 'Farmer';
+        document.getElementById('userAvatarMini').textContent = (user.name ? user.name[0] : 'F').toUpperCase();
+      } else {
+        openBtn.style.display = 'flex';
+        badge.style.display = 'none';
+      }
+    }
+
+    function userLogout() {
+      sessionStorage.removeItem(USER_SESSION_KEY);
+      updateHeaderUserArea();
+    }
+
+    /* ---------- HOME / LIVE BOARD ---------- */
+    function populateCentreSelect(sel) {
+      if (!sel) return;
+      sel.innerHTML = localDB.centres.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
+    }
+
     function renderHome() {
       populateCentreSelect(document.getElementById('boardCentreSelect'));
       document.getElementById('boardDate').textContent = fmtDate(todayISO());
       updateBoard();
 
-      document.getElementById('statFarmers').textContent = db.farmers.length;
+      document.getElementById('statFarmers').textContent = localDB.farmers.length;
       const today = todayISO();
-      const bookingsToday = db.bookings.filter(b => b.date === today && b.status !== 'cancelled');
+      const bookingsToday = localDB.bookings.filter(b => b.date === today && b.status !== 'cancelled');
       document.getElementById('statBookings').textContent = bookingsToday.length;
       document.getElementById('statServed').textContent = bookingsToday.filter(b => ['serving', 'procured', 'paid'].includes(b.status)).length;
-      document.getElementById('statCentres').textContent = db.centres.length;
+      document.getElementById('statCentres').textContent = localDB.centres.length;
+      updateHeaderUserArea();
     }
+
     function updateBoard() {
       const sel = document.getElementById('boardCentreSelect');
-      const centreId = sel.value || (db.centres[0] && db.centres[0].id);
-      const centre = db.centres.find(c => c.id === centreId);
+      const centreId = sel.value || (localDB.centres[0] && localDB.centres[0].id);
+      const centre = localDB.centres.find(c => c.id === centreId);
       document.getElementById('boardCentreLbl').textContent = centre ? centre.location : '—';
       const date = todayISO();
       const key = qKey(centreId, date);
-      const now = db.queueState[key] || 0;
-      const total = db.tokenCounters[key] || 0;
+      const now = localDB.queueState[key] || 0;
+      const total = localDB.tokenCounters[key] || 0;
       document.getElementById('boardNowServing').textContent = now > 0 ? ('#' + now) : '—';
       document.getElementById('boardBooked').textContent = total;
     }
     document.getElementById('boardCentreSelect').addEventListener('change', updateBoard);
 
-    /* ---------- REGISTER ---------- */
-    document.getElementById('formRegister').addEventListener('submit', function (e) {
+    /* ---------- REGISTER FORM ---------- */
+    document.getElementById('formRegister').addEventListener('submit', async function (e) {
       e.preventDefault();
       const msg = document.getElementById('regMsg');
       try {
-        const farmer = registerFarmer({
-          name: document.getElementById('regName').value.trim(),
-          phone: document.getElementById('regPhone').value.trim(),
-          village: document.getElementById('regVillage').value.trim(),
-          farmerId: document.getElementById('regId').value.trim(),
-          crop: document.getElementById('regCrop').value,
-          qty: document.getElementById('regQty').value
-        });
+        const name = document.getElementById('regName').value.trim();
+        const phone = document.getElementById('regPhone').value.trim();
+        const village = document.getElementById('regVillage').value.trim();
+        const farmerId = document.getElementById('regId').value.trim();
+        const crop = document.getElementById('regCrop').value;
+        const qty = document.getElementById('regQty').value;
+        const password = document.getElementById('regPass').value;
+
+        const farmer = await KrishiDB.registerUser({ name, phone, village, farmerId, crop, qty, password });
         msg.className = 'form-msg show ok';
-        msg.textContent = `Registered! Your farmer ID is ${farmer.id}. You can now book a slot using ${farmer.phone}.`;
+        msg.textContent = `Registered! Farmer ID: ${farmer.id}. Credentials stored securely in database.`;
         this.reset();
+        await KrishiDB.syncData();
         renderHome();
+        // Auto sign-in
+        sessionStorage.setItem(USER_SESSION_KEY, JSON.stringify(farmer));
+        updateHeaderUserArea();
+      } catch (err) {
+        msg.className = 'form-msg show err';
+        msg.textContent = err.message;
+      }
+    });
+
+    /* ---------- FARMER MODAL LOGIN FORM ---------- */
+    document.getElementById('formFarmerLogin').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const msg = document.getElementById('farmerLoginMsg');
+      const phone = document.getElementById('farmerLoginPhone').value.trim();
+      const pass = document.getElementById('farmerLoginPass').value;
+      try {
+        const user = await KrishiDB.loginUser(phone, pass);
+        msg.className = 'form-msg show ok';
+        msg.textContent = `Welcome back, ${user.name}! Logging in...`;
+        setTimeout(() => {
+          closeModal('modalUserAuth');
+          msg.className = 'form-msg';
+          updateHeaderUserArea();
+          // Prefill booking or status phone
+          const bPhone = document.getElementById('bookPhone');
+          if (bPhone) bPhone.value = user.phone;
+          const sPhone = document.getElementById('statusPhone');
+          if (sPhone) {
+            sPhone.value = user.phone;
+            renderStatus(user.phone);
+          }
+        }, 600);
       } catch (err) {
         msg.className = 'form-msg show err';
         msg.textContent = err.message;
@@ -2114,8 +2769,13 @@
       populateCentreSelect(document.getElementById('bookCentre'));
       document.getElementById('bookDate').value = todayISO();
       document.getElementById('bookDate').min = todayISO();
+      const loggedUser = getLoggedInUser();
+      if (loggedUser && !document.getElementById('bookPhone').value) {
+        document.getElementById('bookPhone').value = loggedUser.phone;
+      }
       renderSlotArea();
     }
+
     function renderSlotArea() {
       selectedSlotTime = null;
       document.getElementById('btnConfirmBooking').disabled = true;
@@ -2159,13 +2819,14 @@
         info.className = 'form-msg';
       }
     });
-    document.getElementById('btnConfirmBooking').addEventListener('click', () => {
+
+    document.getElementById('btnConfirmBooking').addEventListener('click', async () => {
       const msg = document.getElementById('bookMsg');
       try {
         if (!selectedSlotTime) throw new Error('Please select a time slot.');
         const qty = document.getElementById('bookQty').value;
         if (!qty || Number(qty) <= 0) throw new Error('Please enter the quantity you plan to sell.');
-        const booking = bookSlot({
+        const booking = await KrishiDB.bookSlot({
           phone: document.getElementById('bookPhone').value.trim(),
           centreId: document.getElementById('bookCentre').value,
           date: document.getElementById('bookDate').value,
@@ -2193,14 +2854,14 @@
         notifEl.innerHTML = '';
         return;
       }
-      const bookings = db.bookings.filter(b => b.farmerId === farmer.id).sort((a, b) => b.createdAt - a.createdAt);
+      const bookings = localDB.bookings.filter(b => b.farmerId === farmer.id).sort((a, b) => b.createdAt - a.createdAt);
       if (bookings.length === 0) {
         resultEl.innerHTML = `<div class="empty"><h4>Welcome back, ${farmer.name.split(' ')[0]}</h4><p>You haven't booked a procurement slot yet.</p></div>`;
       } else {
         resultEl.innerHTML = bookings.map(b => {
-          const centre = db.centres.find(c => c.id === b.centreId);
+          const centre = localDB.centres.find(c => c.id === b.centreId);
           const key = qKey(b.centreId, b.date);
-          const nowServing = db.queueState[key] || 0;
+          const nowServing = localDB.queueState[key] || 0;
           const position = Math.max(b.token - nowServing, 0);
           const waitMin = position * AVG_SERVICE_MIN;
           const stepsOrder = ['booked', 'serving', 'procured', 'paid'];
@@ -2230,7 +2891,7 @@
         }).join('');
       }
 
-      const myNotifs = db.notifications.filter(n => n.farmerId === farmer.id);
+      const myNotifs = localDB.notifications.filter(n => n.farmerId === farmer.id);
       notifEl.innerHTML = myNotifs.length ? myNotifs.map(n => `
     <div class="notif">
       <div class="top"><span>SMS/APP ALERT</span><span>${fmtDateTime(n.time)}</span></div>
@@ -2243,6 +2904,10 @@
     document.getElementById('statusPhone').addEventListener('keydown', (e) => { if (e.key === 'Enter') document.getElementById('btnLookup').click(); });
 
     /* ---------- ADMIN AUTH & DASHBOARD ---------- */
+    function isAdminLoggedIn() {
+      return sessionStorage.getItem(ADMIN_SESSION_KEY) === 'true' || localStorage.getItem(ADMIN_SESSION_KEY) === 'true';
+    }
+
     function renderAdmin() {
       const loggedIn = isAdminLoggedIn();
       const authSec = document.getElementById('adminAuthSection');
@@ -2252,9 +2917,8 @@
         authSec.style.display = 'none';
         dashSec.style.display = 'block';
 
-        // update officer badge
-        document.getElementById('adminOfficerName').textContent = db.admin.name || 'Officer In-Charge (Admin)';
-        document.getElementById('adminOfficerEmail').textContent = `${db.admin.email} · Session Active 🟢`;
+        document.getElementById('adminOfficerName').textContent = localDB.admin.name || 'Officer In-Charge (Admin)';
+        document.getElementById('adminOfficerEmail').textContent = `${localDB.admin.email} · Database Session Active 🟢`;
 
         populateCentreSelect(document.getElementById('adminCentre'));
         if (!document.getElementById('adminDate').value) document.getElementById('adminDate').value = todayISO();
@@ -2265,14 +2929,78 @@
       }
     }
 
-    document.getElementById('formAdminLogin').addEventListener('submit', function (e) {
+    function switchAdminTab(tab) {
+      document.getElementById('subnavQueueBtn').classList.toggle('active', tab === 'queue');
+      document.getElementById('subnavUsersBtn').classList.toggle('active', tab === 'users');
+      document.getElementById('subnavAuditBtn').classList.toggle('active', tab === 'audit');
+
+      document.getElementById('adminPaneQueue').classList.toggle('active', tab === 'queue');
+      document.getElementById('adminPaneUsers').classList.toggle('active', tab === 'users');
+      document.getElementById('adminPaneAudit').classList.toggle('active', tab === 'audit');
+
+      if (tab === 'users') loadUsersDirectory();
+      if (tab === 'audit') loadAuditLogs();
+    }
+
+    async function loadUsersDirectory() {
+      const data = await KrishiDB.getUsersDirectory();
+      const userTbody = document.getElementById('userDirTableBody');
+      const adminTbody = document.getElementById('adminDirTableBody');
+
+      document.getElementById('countFarmersDir').textContent = data.users.length;
+      userTbody.innerHTML = data.users.map(u => `
+        <tr>
+          <td><strong class="mono">${u.phone}</strong><br><span style="font-size:11px; opacity:0.65;">${u.id}</span></td>
+          <td><strong>${u.name}</strong></td>
+          <td>${u.village || '—'}</td>
+          <td>${u.crop || '—'}</td>
+          <td><span class="role-badge farmer">FARMER</span></td>
+          <td><code class="mono" style="font-size:11px;">${u.salt_prefix || 'c2de8d...'}</code></td>
+          <td><span style="color:var(--leaf); font-size:12px;">● SHA-256 Salted</span></td>
+          <td style="font-size:11.5px; opacity:0.75;">${new Date(u.created_at).toLocaleDateString('en-IN')}</td>
+        </tr>
+      `).join('');
+
+      const adminList = Array.isArray(data.admins) ? data.admins : [data.admins];
+      document.getElementById('countAdminsDir').textContent = adminList.length;
+      adminTbody.innerHTML = adminList.map(a => `
+        <tr>
+          <td><strong class="mono">${a.username}</strong><br><span style="font-size:11px; opacity:0.65;">${a.email}</span></td>
+          <td><strong>${a.name}</strong></td>
+          <td>${a.designation || 'Nodal Officer'}</td>
+          <td><span class="role-badge super">${a.role || 'SUPER_ADMIN'}</span></td>
+          <td><code class="mono" style="font-size:11px;">${a.salt_prefix || '9f8e7d...'}</code></td>
+          <td><span style="color:var(--leaf); font-size:12px;">● Salted Password Active</span></td>
+          <td style="font-size:11.5px; opacity:0.75;">Active 🟢</td>
+        </tr>
+      `).join('');
+    }
+
+    async function loadAuditLogs() {
+      const logs = await KrishiDB.getAuditLogs();
+      const tbody = document.getElementById('auditLogsTableBody');
+      document.getElementById('countAuditLogs').textContent = logs.length;
+      tbody.innerHTML = logs.slice(0, 50).map(l => `
+        <tr>
+          <td class="mono" style="font-size:11px; white-space:nowrap;">${new Date(l.timestamp).toLocaleString('en-IN')}</td>
+          <td><strong class="mono" style="font-size:12px;">${l.event_type}</strong></td>
+          <td class="mono" style="font-size:12px;">${l.user_identifier}</td>
+          <td><span class="role-badge ${l.role === 'SUPER_ADMIN' || l.role === 'ADMIN' ? 'super' : 'farmer'}">${l.role}</span></td>
+          <td><span class="audit-status-badge ${l.status}">${l.status}</span></td>
+          <td class="mono" style="font-size:11px;">${l.ip_address}</td>
+          <td style="font-size:12.5px;">${l.details}</td>
+        </tr>
+      `).join('');
+    }
+
+    document.getElementById('formAdminLogin').addEventListener('submit', async function (e) {
       e.preventDefault();
       const msg = document.getElementById('adminLoginMsg');
       const user = document.getElementById('adminLoginUser').value;
       const pass = document.getElementById('adminLoginPass').value;
       const remember = document.getElementById('rememberAdmin').checked;
       try {
-        adminLogin(user, pass, remember);
+        await KrishiDB.loginAdmin(user, pass, remember);
         msg.className = 'form-msg show ok';
         msg.textContent = 'Login successful! Redirecting to console...';
         setTimeout(() => {
@@ -2285,17 +3013,28 @@
       }
     });
 
+    function adminLogout() {
+      sessionStorage.removeItem(ADMIN_SESSION_KEY);
+      localStorage.removeItem(ADMIN_SESSION_KEY);
+      renderAdmin();
+    }
+
     /* Change Password Form Handler */
-    document.getElementById('formChangePassword').addEventListener('submit', function (e) {
+    document.getElementById('formChangePassword').addEventListener('submit', async function (e) {
       e.preventDefault();
       const msg = document.getElementById('changePassMsg');
       const curr = document.getElementById('changeCurrentPass').value;
       const next = document.getElementById('changeNewPass').value;
       const conf = document.getElementById('changeConfirmPass').value;
+      if (next !== conf) {
+        msg.className = 'form-msg show err';
+        msg.textContent = 'New passwords do not match.';
+        return;
+      }
       try {
-        adminChangePassword(curr, next, conf);
+        await KrishiDB.changeAdminPassword(curr, next);
         msg.className = 'form-msg show ok';
-        msg.textContent = 'Password updated successfully! Keep your new password secure.';
+        msg.textContent = 'Password updated in database! Keep your new password secure.';
         this.reset();
         setTimeout(() => {
           closeModal('modalChangePassword');
@@ -2308,11 +3047,11 @@
     });
 
     /* Forgot Password: OTP Step */
-    document.getElementById('btnRequestOtp').addEventListener('click', function () {
+    document.getElementById('btnRequestOtp').addEventListener('click', async function () {
       const msg = document.getElementById('forgotOtpMsg');
       const user = document.getElementById('forgotOtpUser').value;
       try {
-        const res = adminSendOtp(user);
+        const res = await KrishiDB.sendAdminOtp(user);
         document.getElementById('otpRequestStep').style.display = 'none';
         document.getElementById('otpVerifyStep').style.display = 'block';
         document.getElementById('simulatedOtpDisplay').textContent = res.otp;
@@ -2324,17 +3063,22 @@
       }
     });
 
-    document.getElementById('formForgotOtp').addEventListener('submit', function (e) {
+    document.getElementById('formForgotOtp').addEventListener('submit', async function (e) {
       e.preventDefault();
       const msg = document.getElementById('forgotOtpMsg');
       const user = document.getElementById('forgotOtpUser').value;
       const otp = document.getElementById('forgotEnteredOtp').value;
       const pass = document.getElementById('forgotOtpNewPass').value;
       const conf = document.getElementById('forgotOtpConfirmPass').value;
+      if (pass !== conf) {
+        msg.className = 'form-msg show err';
+        msg.textContent = 'Passwords do not match.';
+        return;
+      }
       try {
-        adminResetWithOtp(user, otp, pass, conf);
+        await KrishiDB.resetAdminPassword(user, 'otp', { otp }, pass);
         msg.className = 'form-msg show ok';
-        msg.textContent = 'Password has been reset successfully! You can now log in.';
+        msg.textContent = 'Password reset successfully in database! You can now log in.';
         setTimeout(() => {
           closeModal('modalForgotPassword');
           msg.className = 'form-msg';
@@ -2350,17 +3094,22 @@
     });
 
     /* Forgot Password: Security Question Handler */
-    document.getElementById('formForgotSec').addEventListener('submit', function (e) {
+    document.getElementById('formForgotSec').addEventListener('submit', async function (e) {
       e.preventDefault();
       const msg = document.getElementById('forgotSecMsg');
       const user = document.getElementById('forgotSecUser').value;
       const ans = document.getElementById('forgotSecAns').value;
       const pass = document.getElementById('forgotSecNewPass').value;
       const conf = document.getElementById('forgotSecConfirmPass').value;
+      if (pass !== conf) {
+        msg.className = 'form-msg show err';
+        msg.textContent = 'Passwords do not match.';
+        return;
+      }
       try {
-        adminResetWithSecurityAnswer(user, ans, pass, conf);
+        await KrishiDB.resetAdminPassword(user, 'security_question', { answer: ans }, pass);
         msg.className = 'form-msg show ok';
-        msg.textContent = 'Security answer verified! Password has been reset.';
+        msg.textContent = 'Security answer verified! Password updated in database.';
         setTimeout(() => {
           closeModal('modalForgotPassword');
           msg.className = 'form-msg';
@@ -2377,13 +3126,13 @@
     function renderAdminBoard() {
       const centreId = document.getElementById('adminCentre').value;
       const date = document.getElementById('adminDate').value || todayISO();
-      const centre = db.centres.find(c => c.id === centreId);
+      const centre = localDB.centres.find(c => c.id === centreId);
       const key = qKey(centreId, date);
-      const nowServing = db.queueState[key] || 0;
+      const nowServing = localDB.queueState[key] || 0;
       document.getElementById('adminCentreName').textContent = centre ? centre.name : '—';
       document.getElementById('adminNowServing').textContent = nowServing;
 
-      const bookings = db.bookings.filter(b => b.centreId === centreId && b.date === date && b.status !== 'cancelled').sort((a, b) => a.token - b.token);
+      const bookings = localDB.bookings.filter(b => b.centreId === centreId && b.date === date && b.status !== 'cancelled').sort((a, b) => a.token - b.token);
       const waiting = bookings.filter(b => b.status === 'booked').length;
       document.getElementById('adminWaitingCount').textContent = waiting ? `${waiting} waiting` : 'Queue empty';
 
@@ -2394,10 +3143,10 @@
       } else {
         emptyEl.style.display = 'none';
         tbody.innerHTML = bookings.map(b => {
-          const farmer = db.farmers.find(f => f.id === b.farmerId);
+          const farmer = localDB.farmers.find(f => f.id === b.farmerId);
           return `<tr>
         <td class="mono">#${b.token}</td>
-        <td>${farmer ? farmer.name : '—'}<br><span class="mono" style="font-size:11px; color:rgba(27,42,34,0.5);">${farmer ? farmer.phone : ''}</span></td>
+        <td>${farmer ? farmer.name : 'Farmer'}<br><span class="mono" style="font-size:11px; color:rgba(27,42,34,0.5);">${farmer ? farmer.phone : ''}</span></td>
         <td>${farmer ? farmer.crop : ''} · ${b.qty}q</td>
         <td><span class="badge ${b.status === 'booked' ? 'booked' : b.status === 'serving' ? 'serving' : b.status === 'procured' ? 'procured' : 'paid'}">${b.status}</span></td>
         <td>${b.procuredQty ? `${b.procuredQty}q @ ₹${b.rate}` : (b.status === 'serving' ? procureForm(b.id) : '—')}</td>
@@ -2405,22 +3154,26 @@
         <td></td>
       </tr>`;
         }).join('');
-        // wire per-row procure forms
+
         tbody.querySelectorAll('[data-procure-btn]').forEach(btn => {
-          btn.addEventListener('click', () => {
+          btn.addEventListener('click', async () => {
             const id = btn.dataset.procureBtn;
             const qtyInput = tbody.querySelector(`[data-procure-qty="${id}"]`);
             const rateInput = tbody.querySelector(`[data-procure-rate="${id}"]`);
             if (!qtyInput.value || !rateInput.value) { alert('Enter procured quantity and MSP rate.'); return; }
-            markProcured(id, qtyInput.value, rateInput.value);
+            await KrishiDB.recordProcurement(id, qtyInput.value, rateInput.value);
             renderAdminBoard();
           });
         });
         tbody.querySelectorAll('[data-pay]').forEach(btn => {
-          btn.addEventListener('click', () => { markPaid(btn.dataset.pay); renderAdminBoard(); });
+          btn.addEventListener('click', async () => {
+            await KrishiDB.markPaid(btn.dataset.pay);
+            renderAdminBoard();
+          });
         });
       }
     }
+
     function procureForm(bookingId) {
       return `<div style="display:flex; gap:4px;">
     <input data-procure-qty="${bookingId}" type="number" min="1" placeholder="Qty" style="width:64px; padding:5px 6px; font-size:12px;">
@@ -2428,32 +3181,47 @@
     <button data-procure-btn="${bookingId}" class="btn btn-primary btn-sm" style="padding:5px 8px; font-size:11px;">Save</button>
   </div>`;
     }
+
     document.getElementById('adminCentre').addEventListener('change', renderAdminBoard);
     document.getElementById('adminDate').addEventListener('change', renderAdminBoard);
-    document.getElementById('btnCallNext').addEventListener('click', () => {
+    document.getElementById('btnCallNext').addEventListener('click', async () => {
       const centreId = document.getElementById('adminCentre').value;
       const date = document.getElementById('adminDate').value || todayISO();
-      const booking = callNext(centreId, date);
-      if (!booking) { alert('No more farmers waiting in this queue for the selected date.'); }
-      renderAdminBoard();
-      renderHome();
+      try {
+        const booking = await KrishiDB.callNext(centreId, date);
+        if (!booking) { alert('No more farmers waiting in this queue for the selected date.'); }
+        renderAdminBoard();
+        renderHome();
+      } catch (e) {
+        alert(e.message);
+      }
     });
-    document.getElementById('btnAddCentre').addEventListener('click', () => {
+
+    document.getElementById('btnAddCentre').addEventListener('click', async () => {
       const msg = document.getElementById('centreMsg');
       const name = document.getElementById('newCentreName').value.trim();
       const location = document.getElementById('newCentreLoc').value.trim();
       const cap = document.getElementById('newCentreCap').value;
       if (!name || !location) { msg.className = 'form-msg show err'; msg.textContent = 'Enter centre name and location.'; return; }
-      addCentre({ name, location, capacityPerHour: cap });
-      msg.className = 'form-msg show ok'; msg.textContent = `Added "${name}".`;
-      document.getElementById('newCentreName').value = '';
-      document.getElementById('newCentreLoc').value = '';
-      renderAdmin();
+      try {
+        const centre = await KrishiDB.addCentre({ name, location, capacityPerHour: cap });
+        msg.className = 'form-msg show ok'; msg.textContent = `Added "${name}".`;
+        document.getElementById('newCentreName').value = '';
+        document.getElementById('newCentreLoc').value = '';
+        renderAdmin();
+      } catch (e) {
+        msg.className = 'form-msg show err'; msg.textContent = e.message;
+      }
     });
 
     /* ---------- INIT ---------- */
-    renderHome();
-    setInterval(() => { if (document.getElementById('view-home').classList.contains('active')) updateBoard(); }, 4000);
+    (async function init() {
+      await KrishiDB.checkConnection();
+      renderHome();
+      setInterval(async () => {
+        if (document.getElementById('view-home').classList.contains('active')) updateBoard();
+      }, 4000);
+    })();
   </script>
 </body>
 

@@ -1,0 +1,838 @@
+﻿{
+    "admins":  [
+                   {
+                       "created_at":  "2026-08-27T12:37:51.7312108Z",
+                       "id":  "ADM_001",
+                       "username":  "admin",
+                       "security_answer_salt":  "01e4837e6b4cd355d13b4ccee48f46e5",
+                       "security_question":  "What is your nodal procurement district?",
+                       "name":  "Shri R. K. Sharma (Nodal Officer)",
+                       "is_active":  true,
+                       "designation":  "Chief Procurement Officer",
+                       "phone":  "9876543210",
+                       "role":  "SUPER_ADMIN",
+                       "security_answer_hash":  "89d6b0ec79de0ba1e514e22584d022b986be9e8ae731e4ca76073aaa56149788",
+                       "email":  "admin@krishiqueue.gov.in",
+                       "password_hash":  "73ccd35a1580f234f126b664ad35f992913ef4ee0351fdfa01042d2559a8c19e",
+                       "salt":  "c6e5e6b7b588016d64f68e8bfacd679c",
+                       "updated_at":  "2026-08-27T13:02:45.4609427Z",
+                       "last_login_at":  "2026-08-27T13:05:14.8878004Z"
+                   }
+               ],
+    "centres":  [
+                    {
+                        "id":  "C1",
+                        "name":  "Ganjbasoda Procurement Centre",
+                        "capacityPerHour":  12,
+                        "closeHour":  18,
+                        "location":  "Vidisha, MP",
+                        "openHour":  8
+                    },
+                    {
+                        "id":  "C2",
+                        "name":  "Karnal Mandi Yard 2",
+                        "capacityPerHour":  16,
+                        "closeHour":  19,
+                        "location":  "Karnal, Haryana",
+                        "openHour":  7
+                    }
+                ],
+    "bookings":  [
+                     {
+                         "id":  "B_a694391",
+                         "time":  "10:00",
+                         "centreId":  "C1",
+                         "createdAt":  1787835765521,
+                         "farmerId":  "USR_FC33A2C",
+                         "crop":  "Gram",
+                         "token":  1,
+                         "qty":  25,
+                         "date":  "2026-08-27",
+                         "procuredQty":  25,
+                         "rate":  98,
+                         "amount":  2450,
+                         "paymentStatus":  "paid",
+                         "status":  "paid"
+                     },
+                     {
+                         "id":  "B_3ef6bbe",
+                         "time":  "17:00",
+                         "centreId":  "C1",
+                         "createdAt":  1787835870587,
+                         "farmerId":  "USR_F7A0760",
+                         "crop":  "Mustard",
+                         "token":  2,
+                         "qty":  23,
+                         "date":  "2026-08-27",
+                         "procuredQty":  23,
+                         "rate":  87,
+                         "amount":  2001,
+                         "paymentStatus":  "paid",
+                         "status":  "paid"
+                     },
+                     {
+                         "id":  "B_412dbbc",
+                         "time":  "17:00",
+                         "amount":  null,
+                         "centreId":  "C1",
+                         "procuredQty":  null,
+                         "createdAt":  1787836166937,
+                         "farmerId":  "USR_F7A0760",
+                         "crop":  "Mustard",
+                         "token":  3,
+                         "rate":  null,
+                         "qty":  68,
+                         "date":  "2026-08-27",
+                         "paymentStatus":  "pending",
+                         "status":  "serving"
+                     }
+                 ],
+    "users":  [
+                  {
+                      "farmer_id_ref":  "4821",
+                      "id":  "USR_F001",
+                      "username":  "ramesh",
+                      "district":  "Vidisha",
+                      "village":  "Bilaspur",
+                      "state":  "Madhya Pradesh",
+                      "password_hash":  "5b8dd9556b966e4fb3793c65a85180cf9471694ef3faf17aabeb0ca6f90f22cb",
+                      "created_at":  "2026-08-27T12:37:51.7312108Z",
+                      "name":  "Ramesh Yadav",
+                      "crop":  "Wheat",
+                      "qty":  40,
+                      "last_login_at":  "2026-08-27T12:38:07.3878786Z",
+                      "phone":  "9876543210",
+                      "role":  "FARMER_USER",
+                      "salt":  "c2de8d584419c1d74541436387731ed8",
+                      "is_active":  true
+                  },
+                  {
+                      "farmer_id_ref":  "5512",
+                      "id":  "USR_F2ECCEB",
+                      "username":  "9123456789",
+                      "district":  "",
+                      "village":  "Bhopal",
+                      "state":  "",
+                      "password_hash":  "8553c914679eb1312986339ceaff3c8e4c88fcd6bdeb1662b62bbbeab3da6ce3",
+                      "created_at":  "2026-08-27T12:38:16.1563992Z",
+                      "name":  "Suresh Patel",
+                      "crop":  "Gram (Chana)",
+                      "qty":  50,
+                      "last_login_at":  null,
+                      "phone":  "9123456789",
+                      "role":  "FARMER_USER",
+                      "salt":  "858bf3722605246c57daa5ffccaea8bb",
+                      "is_active":  true
+                  },
+                  {
+                      "farmer_id_ref":  "9988",
+                      "id":  "USR_F5AE395",
+                      "username":  "9811223344",
+                      "district":  "",
+                      "village":  "Sehore",
+                      "state":  "",
+                      "password_hash":  "254db927935074f8f3dab37724ea3277c19faf1809ed39d109abfa98d481256c",
+                      "created_at":  "2026-08-27T12:40:08.0502967Z",
+                      "name":  "Vikram Singh",
+                      "crop":  "Paddy",
+                      "qty":  60,
+                      "last_login_at":  "2026-08-27T12:40:08.1071753Z",
+                      "phone":  "9811223344",
+                      "role":  "FARMER_USER",
+                      "salt":  "92daa61291ddf3926b54ce6bbad28109",
+                      "is_active":  true
+                  },
+                  {
+                      "farmer_id_ref":  "1122",
+                      "id":  "USR_F892A68",
+                      "username":  "9776655443",
+                      "district":  "",
+                      "village":  "Hoshangabad",
+                      "state":  "",
+                      "password_hash":  "0ed82e6a38987b943b41cbca1b041375f840302f4833f2338cd4262921d35858",
+                      "created_at":  "2026-08-27T12:40:52.1847574Z",
+                      "name":  "Kavita Devi",
+                      "crop":  "Mustard",
+                      "qty":  35,
+                      "last_login_at":  "2026-08-27T12:42:37.5811210Z",
+                      "phone":  "9776655443",
+                      "role":  "FARMER_USER",
+                      "salt":  "5d67f03681b0d9e9ed20210609250b13",
+                      "is_active":  true
+                  },
+                  {
+                      "farmer_id_ref":  "7766",
+                      "id":  "USR_FA055AC",
+                      "username":  "9822334455",
+                      "district":  "",
+                      "village":  "Indore",
+                      "state":  "",
+                      "password_hash":  "b7cea91f0f7278a04f26c6ffc88b858890e07ec0e43a572839ece9d2d121595c",
+                      "created_at":  "2026-08-27T12:45:30.5311013Z",
+                      "name":  "Anil Sharma",
+                      "crop":  "Wheat",
+                      "qty":  45,
+                      "last_login_at":  "2026-08-27T12:45:30.6296204Z",
+                      "phone":  "9822334455",
+                      "role":  "FARMER_USER",
+                      "salt":  "e5ffc2484ea2a7bc927c032f80e083eb",
+                      "is_active":  true
+                  },
+                  {
+                      "farmer_id_ref":  "9900",
+                      "id":  "USR_F5176E5",
+                      "username":  "9911223344",
+                      "district":  "",
+                      "village":  "Bhopal",
+                      "state":  "",
+                      "password_hash":  "8b5abfb2ed7a2617b0fac4bb57206c09a548bd38e5b7cd44f56d905bfb8420bf",
+                      "created_at":  "2026-08-27T12:52:36.0457664Z",
+                      "name":  "Test Farmer",
+                      "crop":  "Soybean",
+                      "qty":  20,
+                      "last_login_at":  "2026-08-27T12:52:36.1525633Z",
+                      "phone":  "9911223344",
+                      "role":  "FARMER_USER",
+                      "salt":  "0bff6a5ae12f0b6cf0e31876ffa48a02",
+                      "is_active":  true
+                  },
+                  {
+                      "farmer_id_ref":  "4411",
+                      "id":  "USR_F72504D",
+                      "username":  "9988776655",
+                      "district":  "",
+                      "village":  "Lucknow",
+                      "state":  "",
+                      "password_hash":  "8797764ee4fcf60db7d9f96aa530bf115dd1d4eff409281d276a14394f1af4a1",
+                      "created_at":  "2026-08-27T12:55:19.8085121Z",
+                      "name":  "Priya Singh",
+                      "crop":  "Rice",
+                      "qty":  30,
+                      "phone":  "9988776655",
+                      "role":  "FARMER_USER",
+                      "salt":  "42c111a5f81cb486e6115c938d8652e7",
+                      "is_active":  true,
+                      "last_login_at":  "2026-08-27T12:55:19.8897618Z"
+                  },
+                  {
+                      "farmer_id_ref":  "3322",
+                      "id":  "USR_FC33A2C",
+                      "username":  "9833445566",
+                      "district":  "",
+                      "village":  "Sehore",
+                      "state":  "",
+                      "password_hash":  "7808af067fbd31fcb0f84f68826b7997bfe42ce51712f907190890b71c680dd3",
+                      "created_at":  "2026-08-27T13:02:45.2221156Z",
+                      "name":  "Pooja Verma",
+                      "crop":  "Gram",
+                      "qty":  25,
+                      "phone":  "9833445566",
+                      "role":  "FARMER_USER",
+                      "salt":  "ded3448f9777951834296feb4bdb0779",
+                      "is_active":  true,
+                      "last_login_at":  "2026-08-27T13:02:45.3360933Z"
+                  },
+                  {
+                      "farmer_id_ref":  "4583",
+                      "id":  "USR_F7A0760",
+                      "username":  "9321738370",
+                      "district":  "",
+                      "village":  "Mumbai",
+                      "state":  "",
+                      "password_hash":  "69ac9584b2b6ade2b11adea33b3dad2477849f358584ebfa6380e86004912ac0",
+                      "created_at":  "2026-08-27T13:03:47.6860300Z",
+                      "name":  "Aditya Kurian",
+                      "crop":  "Mustard",
+                      "qty":  28,
+                      "last_login_at":  null,
+                      "phone":  "9321738370",
+                      "role":  "FARMER_USER",
+                      "salt":  "93e63f3289b1a587b2a943d70ec0cffc",
+                      "is_active":  true
+                  }
+              ],
+    "notifications":  [
+                          {
+                              "time":  1787836177450,
+                              "message":  "Your turn at Ganjbasoda Procurement Centre! Token #3.",
+                              "farmerId":  "USR_F7A0760",
+                              "id":  "NOTIF_1d1f25"
+                          },
+                          {
+                              "time":  1787836166937,
+                              "message":  "Slot booked at Ganjbasoda Procurement Centre on 2026-08-27. Token #3.",
+                              "farmerId":  "USR_F7A0760",
+                              "id":  "NOTIF_4d7b40"
+                          },
+                          {
+                              "time":  1787836140020,
+                              "message":  "Payment of Rs.2001 credited. Thank you.",
+                              "farmerId":  "USR_F7A0760",
+                              "id":  "NOTIF_308c51"
+                          },
+                          {
+                              "time":  1787836139178,
+                              "message":  "Procurement recorded: 23 qtl @ Rs.87/q. Total: Rs.2001.",
+                              "farmerId":  "USR_F7A0760",
+                              "id":  "NOTIF_2a6970"
+                          },
+                          {
+                              "time":  1787836124911,
+                              "message":  "Your turn at Ganjbasoda Procurement Centre! Token #2.",
+                              "farmerId":  "USR_F7A0760",
+                              "id":  "NOTIF_93d544"
+                          },
+                          {
+                              "time":  1787836122717,
+                              "message":  "Payment of Rs.2450 credited. Thank you.",
+                              "farmerId":  "USR_FC33A2C",
+                              "id":  "NOTIF_5a9149"
+                          },
+                          {
+                              "time":  1787836121052,
+                              "message":  "Procurement recorded: 25 qtl @ Rs.98/q. Total: Rs.2450.",
+                              "farmerId":  "USR_FC33A2C",
+                              "id":  "NOTIF_320e81"
+                          },
+                          {
+                              "time":  1787835938231,
+                              "message":  "Your turn at Ganjbasoda Procurement Centre! Token #1.",
+                              "farmerId":  "USR_FC33A2C",
+                              "id":  "NOTIF_e4d57b"
+                          },
+                          {
+                              "time":  1787835870587,
+                              "message":  "Slot booked at Ganjbasoda Procurement Centre on 2026-08-27. Token #2.",
+                              "farmerId":  "USR_F7A0760",
+                              "id":  "NOTIF_6939ee"
+                          },
+                          {
+                              "time":  1787835827686,
+                              "message":  "Welcome Aditya Kurian! Account active.",
+                              "farmerId":  "USR_F7A0760",
+                              "id":  "NOTIF_108d05"
+                          },
+                          {
+                              "time":  1787835765522,
+                              "message":  "Slot booked at Ganjbasoda Procurement Centre on 2026-08-27. Token #1.",
+                              "farmerId":  "USR_FC33A2C",
+                              "id":  "NOTIF_7814d9"
+                          },
+                          {
+                              "time":  1787835765239,
+                              "message":  "Welcome Pooja Verma! Account active.",
+                              "farmerId":  "USR_FC33A2C",
+                              "id":  "NOTIF_a2b083"
+                          },
+                          {
+                              "time":  1787835319825,
+                              "message":  "Welcome Priya Singh! Your KrishiQueue farmer account is active. Use your mobile number to log in and book procurement slots.",
+                              "farmerId":  "USR_F72504D",
+                              "id":  "NOTIF_fc4fb0"
+                          },
+                          {
+                              "time":  1787835156061,
+                              "message":  "Welcome Test Farmer! Your KrishiQueue farmer account is active. Use your mobile number to log in and book procurement slots.",
+                              "farmerId":  "USR_F5176E5",
+                              "id":  "NOTIF_27e474"
+                          },
+                          {
+                              "time":  1787834730540,
+                              "message":  "Welcome Anil Sharma! Your KrishiQueue farmer account is active. Use your mobile number to log in and book procurement slots.",
+                              "farmerId":  "USR_FA055AC",
+                              "id":  "NOTIF_6789df"
+                          },
+                          {
+                              "time":  1787834452184,
+                              "message":  "Welcome Kavita Devi! Your KrishiQueue farmer account is active. Use your mobile number to log in and book procurement slots.",
+                              "farmerId":  "USR_F892A68",
+                              "id":  "NOTIF_4d3fb8"
+                          },
+                          {
+                              "time":  1787834408050,
+                              "message":  "Welcome Vikram Singh! Your KrishiQueue farmer account is active. Use your mobile number to log in and book procurement slots.",
+                              "farmerId":  "USR_F5AE395",
+                              "id":  "NOTIF_c8eb10"
+                          },
+                          {
+                              "time":  1787834296156,
+                              "message":  "Welcome Suresh Patel! Your KrishiQueue farmer account is active. Use your mobile number to log in and book procurement slots.",
+                              "farmerId":  "USR_F2ECCEB",
+                              "id":  "NOTIF_b47ca0"
+                          },
+                          {
+                              "time":  1787834271731,
+                              "message":  "Welcome Ramesh! Your KrishiQueue farmer account is active. Use phone 9876543210 to login and book procurement slots.",
+                              "farmerId":  "USR_F001",
+                              "id":  "NOTIF_001"
+                          }
+                      ],
+    "queueState":  {
+                       "C1_2026-08-27":  3
+                   },
+    "audit_logs":  [
+                       {
+                           "event_type":  "QUEUE_CALL_NEXT",
+                           "timestamp":  "2026-08-27T13:09:37.4500165Z",
+                           "user_identifier":  "OPERATOR",
+                           "ip_address":  "::1",
+                           "id":  "LOG_0c86609e",
+                           "details":  "Called Token #3 at Ganjbasoda Procurement Centre",
+                           "status":  "SUCCESS",
+                           "role":  "ADMIN"
+                       },
+                       {
+                           "event_type":  "SLOT_BOOKED",
+                           "timestamp":  "2026-08-27T13:09:26.9372005Z",
+                           "user_identifier":  "9321738370",
+                           "ip_address":  "::1",
+                           "id":  "LOG_212075b7",
+                           "details":  "Token #3 at Ganjbasoda Procurement Centre on 2026-08-27",
+                           "status":  "SUCCESS",
+                           "role":  "FARMER_USER"
+                       },
+                       {
+                           "event_type":  "PAYMENT_DISBURSED",
+                           "timestamp":  "2026-08-27T13:09:00.0206485Z",
+                           "user_identifier":  "OPERATOR",
+                           "ip_address":  "::1",
+                           "id":  "LOG_8c52d191",
+                           "details":  "Payment complete for B_3ef6bbe",
+                           "status":  "SUCCESS",
+                           "role":  "ADMIN"
+                       },
+                       {
+                           "event_type":  "PROCUREMENT_RECORD",
+                           "timestamp":  "2026-08-27T13:08:59.1782575Z",
+                           "user_identifier":  "OPERATOR",
+                           "ip_address":  "::1",
+                           "id":  "LOG_6047f09f",
+                           "details":  "Recorded 23 qtl for B_3ef6bbe",
+                           "status":  "SUCCESS",
+                           "role":  "ADMIN"
+                       },
+                       {
+                           "event_type":  "QUEUE_CALL_NEXT",
+                           "timestamp":  "2026-08-27T13:08:44.9111882Z",
+                           "user_identifier":  "OPERATOR",
+                           "ip_address":  "::1",
+                           "id":  "LOG_37f9f834",
+                           "details":  "Called Token #2 at Ganjbasoda Procurement Centre",
+                           "status":  "SUCCESS",
+                           "role":  "ADMIN"
+                       },
+                       {
+                           "event_type":  "PAYMENT_DISBURSED",
+                           "timestamp":  "2026-08-27T13:08:42.7171861Z",
+                           "user_identifier":  "OPERATOR",
+                           "ip_address":  "::1",
+                           "id":  "LOG_48b66bb1",
+                           "details":  "Payment complete for B_a694391",
+                           "status":  "SUCCESS",
+                           "role":  "ADMIN"
+                       },
+                       {
+                           "event_type":  "PROCUREMENT_RECORD",
+                           "timestamp":  "2026-08-27T13:08:41.0526045Z",
+                           "user_identifier":  "OPERATOR",
+                           "ip_address":  "::1",
+                           "id":  "LOG_80358553",
+                           "details":  "Recorded 25 qtl for B_a694391",
+                           "status":  "SUCCESS",
+                           "role":  "ADMIN"
+                       },
+                       {
+                           "event_type":  "QUEUE_CALL_NEXT",
+                           "timestamp":  "2026-08-27T13:05:38.2310745Z",
+                           "user_identifier":  "OPERATOR",
+                           "ip_address":  "::1",
+                           "id":  "LOG_94d34195",
+                           "details":  "Called Token #1 at Ganjbasoda Procurement Centre",
+                           "status":  "SUCCESS",
+                           "role":  "ADMIN"
+                       },
+                       {
+                           "event_type":  "ADMIN_LOGIN",
+                           "timestamp":  "2026-08-27T13:05:14.8888287Z",
+                           "user_identifier":  "admin",
+                           "ip_address":  "::1",
+                           "id":  "LOG_3d738cc2",
+                           "details":  "Admin in: Shri R. K. Sharma (Nodal Officer)",
+                           "status":  "SUCCESS",
+                           "role":  "ADMIN"
+                       },
+                       {
+                           "event_type":  "ADMIN_LOGIN",
+                           "timestamp":  "2026-08-27T13:05:06.4245297Z",
+                           "user_identifier":  "admin",
+                           "ip_address":  "::1",
+                           "id":  "LOG_a38d1ebb",
+                           "details":  "Wrong password",
+                           "status":  "FAILED",
+                           "role":  "ADMIN"
+                       },
+                       {
+                           "event_type":  "SLOT_BOOKED",
+                           "timestamp":  "2026-08-27T13:04:30.5876042Z",
+                           "user_identifier":  "9321738370",
+                           "ip_address":  "::1",
+                           "id":  "LOG_9710eebc",
+                           "details":  "Token #2 at Ganjbasoda Procurement Centre on 2026-08-27",
+                           "status":  "SUCCESS",
+                           "role":  "FARMER_USER"
+                       },
+                       {
+                           "event_type":  "USER_REGISTER",
+                           "timestamp":  "2026-08-27T13:03:47.6860300Z",
+                           "user_identifier":  "9321738370",
+                           "ip_address":  "::1",
+                           "id":  "LOG_a1eaeb76",
+                           "details":  "Registered: Aditya Kurian",
+                           "status":  "SUCCESS",
+                           "role":  "FARMER_USER"
+                       },
+                       {
+                           "event_type":  "SLOT_BOOKED",
+                           "timestamp":  "2026-08-27T13:02:45.5229718Z",
+                           "user_identifier":  "9833445566",
+                           "ip_address":  "::1",
+                           "id":  "LOG_86542cef",
+                           "details":  "Token #1 at Ganjbasoda Procurement Centre on 2026-08-27",
+                           "status":  "SUCCESS",
+                           "role":  "FARMER_USER"
+                       },
+                       {
+                           "event_type":  "PASSWORD_CHANGE",
+                           "timestamp":  "2026-08-27T13:02:45.4609427Z",
+                           "user_identifier":  "admin",
+                           "ip_address":  "::1",
+                           "id":  "LOG_80113a3c",
+                           "details":  "Password updated",
+                           "status":  "SUCCESS",
+                           "role":  "ADMIN"
+                       },
+                       {
+                           "event_type":  "ADMIN_LOGIN",
+                           "timestamp":  "2026-08-27T13:02:45.4443581Z",
+                           "user_identifier":  "admin",
+                           "ip_address":  "::1",
+                           "id":  "LOG_d5a9b70d",
+                           "details":  "Admin in: Shri R. K. Sharma (Nodal Officer)",
+                           "status":  "SUCCESS",
+                           "role":  "ADMIN"
+                       },
+                       {
+                           "event_type":  "PASSWORD_CHANGE",
+                           "timestamp":  "2026-08-27T13:02:45.4253094Z",
+                           "user_identifier":  "admin",
+                           "ip_address":  "::1",
+                           "id":  "LOG_524497c4",
+                           "details":  "Password updated",
+                           "status":  "SUCCESS",
+                           "role":  "ADMIN"
+                       },
+                       {
+                           "event_type":  "ADMIN_LOGIN",
+                           "timestamp":  "2026-08-27T13:02:45.4041957Z",
+                           "user_identifier":  "admin",
+                           "ip_address":  "::1",
+                           "id":  "LOG_31a47e75",
+                           "details":  "Admin in: Shri R. K. Sharma (Nodal Officer)",
+                           "status":  "SUCCESS",
+                           "role":  "ADMIN"
+                       },
+                       {
+                           "event_type":  "USER_LOGIN",
+                           "timestamp":  "2026-08-27T13:02:45.3662445Z",
+                           "user_identifier":  "9833445566",
+                           "ip_address":  "::1",
+                           "id":  "LOG_63f9da84",
+                           "details":  "Wrong password",
+                           "status":  "FAILED",
+                           "role":  "FARMER_USER"
+                       },
+                       {
+                           "event_type":  "USER_LOGIN",
+                           "timestamp":  "2026-08-27T13:02:45.3396892Z",
+                           "user_identifier":  "9833445566",
+                           "ip_address":  "::1",
+                           "id":  "LOG_66e3e28e",
+                           "details":  "Logged in: Pooja Verma",
+                           "status":  "SUCCESS",
+                           "role":  "FARMER_USER"
+                       },
+                       {
+                           "event_type":  "USER_REGISTER",
+                           "timestamp":  "2026-08-27T13:02:45.2390511Z",
+                           "user_identifier":  "9833445566",
+                           "ip_address":  "::1",
+                           "id":  "LOG_ee65d04a",
+                           "details":  "Registered: Pooja Verma",
+                           "status":  "SUCCESS",
+                           "role":  "FARMER_USER"
+                       },
+                       {
+                           "event_type":  "PASSWORD_CHANGE",
+                           "timestamp":  "2026-08-27T12:55:20.0091302Z",
+                           "user_identifier":  "admin",
+                           "ip_address":  "::1",
+                           "id":  "LOG_ef07558e",
+                           "details":  "Admin password updated successfully",
+                           "status":  "SUCCESS",
+                           "role":  "ADMIN"
+                       },
+                       {
+                           "event_type":  "ADMIN_LOGIN",
+                           "timestamp":  "2026-08-27T12:55:19.9881842Z",
+                           "user_identifier":  "admin",
+                           "ip_address":  "::1",
+                           "id":  "LOG_c3960d63",
+                           "details":  "Admin logged in: Shri R. K. Sharma (Nodal Officer) (SUPER_ADMIN)",
+                           "status":  "SUCCESS",
+                           "role":  "ADMIN"
+                       },
+                       {
+                           "event_type":  "PASSWORD_CHANGE",
+                           "timestamp":  "2026-08-27T12:55:19.9667365Z",
+                           "user_identifier":  "admin",
+                           "ip_address":  "::1",
+                           "id":  "LOG_d9bca309",
+                           "details":  "Admin password updated successfully",
+                           "status":  "SUCCESS",
+                           "role":  "ADMIN"
+                       },
+                       {
+                           "event_type":  "ADMIN_LOGIN",
+                           "timestamp":  "2026-08-27T12:55:19.9394412Z",
+                           "user_identifier":  "admin",
+                           "ip_address":  "::1",
+                           "id":  "LOG_5e71a01e",
+                           "details":  "Admin logged in: Shri R. K. Sharma (Nodal Officer) (SUPER_ADMIN)",
+                           "status":  "SUCCESS",
+                           "role":  "ADMIN"
+                       },
+                       {
+                           "event_type":  "USER_LOGIN",
+                           "timestamp":  "2026-08-27T12:55:19.9186108Z",
+                           "user_identifier":  "9988776655",
+                           "ip_address":  "::1",
+                           "id":  "LOG_5631c954",
+                           "details":  "Login failed: Incorrect password",
+                           "status":  "FAILED",
+                           "role":  "FARMER_USER"
+                       },
+                       {
+                           "event_type":  "USER_LOGIN",
+                           "timestamp":  "2026-08-27T12:55:19.8967278Z",
+                           "user_identifier":  "9988776655",
+                           "ip_address":  "::1",
+                           "id":  "LOG_9a231d5c",
+                           "details":  "Farmer logged in successfully: Priya Singh",
+                           "status":  "SUCCESS",
+                           "role":  "FARMER_USER"
+                       },
+                       {
+                           "event_type":  "USER_REGISTER",
+                           "timestamp":  "2026-08-27T12:55:19.8250902Z",
+                           "user_identifier":  "9988776655",
+                           "ip_address":  "::1",
+                           "id":  "LOG_c3b578c0",
+                           "details":  "New farmer registered successfully: Priya Singh",
+                           "status":  "SUCCESS",
+                           "role":  "FARMER_USER"
+                       },
+                       {
+                           "event_type":  "ADMIN_LOGIN",
+                           "timestamp":  "2026-08-27T12:52:36.2085669Z",
+                           "user_identifier":  "admin",
+                           "ip_address":  "::1",
+                           "id":  "LOG_d3f1fc25",
+                           "details":  "Admin logged in: Shri R. K. Sharma (Nodal Officer) (SUPER_ADMIN)",
+                           "status":  "SUCCESS",
+                           "role":  "ADMIN"
+                       },
+                       {
+                           "event_type":  "USER_LOGIN",
+                           "timestamp":  "2026-08-27T12:52:36.1788286Z",
+                           "user_identifier":  "9911223344",
+                           "ip_address":  "::1",
+                           "id":  "LOG_c7dbf97a",
+                           "details":  "Login failed: Incorrect password",
+                           "status":  "FAILED",
+                           "role":  "FARMER_USER"
+                       },
+                       {
+                           "event_type":  "USER_LOGIN",
+                           "timestamp":  "2026-08-27T12:52:36.1531637Z",
+                           "user_identifier":  "9911223344",
+                           "ip_address":  "::1",
+                           "id":  "LOG_9dbb0f59",
+                           "details":  "Farmer logged in successfully: Test Farmer",
+                           "status":  "SUCCESS",
+                           "role":  "FARMER_USER"
+                       },
+                       {
+                           "event_type":  "USER_REGISTER",
+                           "timestamp":  "2026-08-27T12:52:36.0615678Z",
+                           "user_identifier":  "9911223344",
+                           "ip_address":  "::1",
+                           "id":  "LOG_1987f292",
+                           "details":  "New farmer registered successfully: Test Farmer",
+                           "status":  "SUCCESS",
+                           "role":  "FARMER_USER"
+                       },
+                       {
+                           "event_type":  "ADMIN_LOGIN",
+                           "timestamp":  "2026-08-27T12:45:30.6490118Z",
+                           "user_identifier":  "admin",
+                           "ip_address":  "::1",
+                           "id":  "LOG_12dbf0ac",
+                           "details":  "Admin logged in: Shri R. K. Sharma (Nodal Officer) (SUPER_ADMIN)",
+                           "status":  "SUCCESS",
+                           "role":  "ADMIN"
+                       },
+                       {
+                           "event_type":  "USER_LOGIN",
+                           "timestamp":  "2026-08-27T12:45:30.6303416Z",
+                           "user_identifier":  "9822334455",
+                           "ip_address":  "::1",
+                           "id":  "LOG_a072df2d",
+                           "details":  "Farmer logged in successfully: Anil Sharma",
+                           "status":  "SUCCESS",
+                           "role":  "FARMER_USER"
+                       },
+                       {
+                           "event_type":  "USER_REGISTER",
+                           "timestamp":  "2026-08-27T12:45:30.5404403Z",
+                           "user_identifier":  "9822334455",
+                           "ip_address":  "::1",
+                           "id":  "LOG_68587c4a",
+                           "details":  "New farmer registered successfully: Anil Sharma",
+                           "status":  "SUCCESS",
+                           "role":  "FARMER_USER"
+                       },
+                       {
+                           "event_type":  "USER_LOGIN",
+                           "timestamp":  "2026-08-27T12:42:37.5821199Z",
+                           "user_identifier":  "9776655443",
+                           "ip_address":  "::1",
+                           "id":  "LOG_b632a797",
+                           "details":  "Farmer logged in successfully: Kavita Devi",
+                           "status":  "SUCCESS",
+                           "role":  "FARMER_USER"
+                       },
+                       {
+                           "event_type":  "USER_REGISTER",
+                           "timestamp":  "2026-08-27T12:42:37.3666958Z",
+                           "user_identifier":  "9776655443",
+                           "ip_address":  "::1",
+                           "id":  "LOG_f09e4879",
+                           "details":  "Registration rejected: Phone already registered",
+                           "status":  "FAILED",
+                           "role":  "FARMER_USER"
+                       },
+                       {
+                           "event_type":  "USER_LOGIN",
+                           "timestamp":  "2026-08-27T12:40:52.2130118Z",
+                           "user_identifier":  "9776655443",
+                           "ip_address":  "::1",
+                           "id":  "LOG_59568114",
+                           "details":  "Farmer logged in successfully: Kavita Devi",
+                           "status":  "SUCCESS",
+                           "role":  "FARMER_USER"
+                       },
+                       {
+                           "event_type":  "USER_REGISTER",
+                           "timestamp":  "2026-08-27T12:40:52.1847574Z",
+                           "user_identifier":  "9776655443",
+                           "ip_address":  "::1",
+                           "id":  "LOG_5e438878",
+                           "details":  "New farmer registered successfully: Kavita Devi",
+                           "status":  "SUCCESS",
+                           "role":  "FARMER_USER"
+                       },
+                       {
+                           "event_type":  "ADMIN_LOGIN",
+                           "timestamp":  "2026-08-27T12:40:08.1743992Z",
+                           "user_identifier":  "admin",
+                           "ip_address":  "::1",
+                           "id":  "LOG_392b1a4e",
+                           "details":  "Admin logged in: Shri R. K. Sharma (Nodal Officer) (SUPER_ADMIN)",
+                           "status":  "SUCCESS",
+                           "role":  "ADMIN"
+                       },
+                       {
+                           "event_type":  "USER_LOGIN",
+                           "timestamp":  "2026-08-27T12:40:08.1338468Z",
+                           "user_identifier":  "9811223344",
+                           "ip_address":  "::1",
+                           "id":  "LOG_d4055ecc",
+                           "details":  "Login failed: Incorrect password",
+                           "status":  "FAILED",
+                           "role":  "FARMER_USER"
+                       },
+                       {
+                           "event_type":  "USER_LOGIN",
+                           "timestamp":  "2026-08-27T12:40:08.1071753Z",
+                           "user_identifier":  "9811223344",
+                           "ip_address":  "::1",
+                           "id":  "LOG_46d22458",
+                           "details":  "Farmer logged in successfully: Vikram Singh",
+                           "status":  "SUCCESS",
+                           "role":  "FARMER_USER"
+                       },
+                       {
+                           "event_type":  "USER_REGISTER",
+                           "timestamp":  "2026-08-27T12:40:08.0502967Z",
+                           "user_identifier":  "9811223344",
+                           "ip_address":  "::1",
+                           "id":  "LOG_70bf9a33",
+                           "details":  "New farmer registered successfully: Vikram Singh",
+                           "status":  "SUCCESS",
+                           "role":  "FARMER_USER"
+                       },
+                       {
+                           "event_type":  "USER_REGISTER",
+                           "timestamp":  "2026-08-27T12:38:16.1563992Z",
+                           "user_identifier":  "9123456789",
+                           "ip_address":  "::1",
+                           "id":  "LOG_4eb348c4",
+                           "details":  "New farmer registered successfully: Suresh Patel",
+                           "status":  "SUCCESS",
+                           "role":  "FARMER_USER"
+                       },
+                       {
+                           "event_type":  "USER_LOGIN",
+                           "timestamp":  "2026-08-27T12:38:07.3878786Z",
+                           "user_identifier":  "9876543210",
+                           "ip_address":  "::1",
+                           "id":  "LOG_26a60348",
+                           "details":  "Farmer logged in successfully: Ramesh Yadav",
+                           "status":  "SUCCESS",
+                           "role":  "FARMER_USER"
+                       },
+                       {
+                           "event_type":  "ADMIN_LOGIN",
+                           "timestamp":  "2026-08-27T12:38:07.3247331Z",
+                           "user_identifier":  "admin",
+                           "ip_address":  "::1",
+                           "id":  "LOG_d5fe93d2",
+                           "details":  "Admin logged in: Shri R. K. Sharma (Nodal Officer) (SUPER_ADMIN)",
+                           "status":  "SUCCESS",
+                           "role":  "ADMIN"
+                       },
+                       {
+                           "event_type":  "SYSTEM_INITIALIZE",
+                           "timestamp":  "2026-08-27T12:37:51.7312108Z",
+                           "user_identifier":  "SYSTEM",
+                           "ip_address":  "127.0.0.1",
+                           "id":  "LOG_001",
+                           "details":  "KrishiQueue database initialized with secure salted credentials.",
+                           "status":  "SUCCESS",
+                           "role":  "SYSTEM"
+                       }
+                   ],
+    "tokenCounters":  {
+                          "C1_2026-08-27":  3
+                      }
+}
